@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@event) do |f| %>
+    <!--@eventの後にURLを指定しなかったら自動的にPOSTに飛ぶ-->
+    <strong>イベント名</strong>
+      <%= f.label :イベント名 %>
+      <%= f.text_field :eventname %>
+　　 <strong>開催日時</strong>
+    <p>＊イベントが始まる時間のみ入力してください</p>
+      <%= f.label :開催日時 %>
+      <%= f.text_field :when, :class => 'datepicker' %>
+　　 <strong>開催場所</strong>
+      <%= f.label :開催場所 %>
+      <%= f.text_field :where %>
+    <strong>参加費</strong>
+    <p>＊参加費が無料の場合は０と、未定の場合は未定と入力してください。</p>
+      <%= f.label :参加費　%>
+      <%= f.text_field :cost %>
+    <strong>どんなイベントですか？</strong>
+      <%= f.label :ひと言 %>
+      <div class="event_text_create">
+        <%= f.text_area :text %> 
+      </div>
+
+        <strong>イメージ画像１</strong>
+      <%= f.file_field :picture %>
+        <strong>イメージ画像2</strong>
+      <%= f.file_field :picture2 %>
+
+
+      <%= f.submit "投稿する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+
+@import "bootstrap-sprocket";
+@import "bootstrap";
+/*{margin: 20px 10px 5px 0px}
+＝順番に上、右、下、左のmarginの値*/
+.event-box{
+
+    background: white;
+    padding: 10px;
+    box-shadow: 0 0 9.3px gray;
+    border-top: 13px #FFD700 solid;
+    margin: 10px 5px;
+}
+
+.event-box:hover
+{background-color: #FAFAD2;
+}
+
+.event-box-img{
+
+  padding: 5 5 10 5px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color:#FFFFEE;
+}
+
+.event-details
+{   width: 100%;
+    height: 25%;
+    margin: 0;
+}
+
+
+.event-box-eventname
+{
+    padding: 10px 30px 10px 20px;
+    margin:12px 12px 12px 20px;
+    height: 27%;
+    /*width: 80%;*/
+    font-size:39px;
+    overflow: scroll;
+    border-top-style: solid;
+    border-color: grey;
+    background-color:#FFFFEE;
+    /*display:inline;*/
+}
+
+/*.event-box-eventname{
+    padding: 10px ;
+    margin:12px ;
+    height: 27% ;
+    font-size:39px ;
+    overflow: scroll ;
+    border-top-style: solid ;
+    border-color: grey ;
+    background-color: #FFFFEE ;
+}*/
+.event-box-1{
+    margin:18px;
+    padding: 0px 0px;
+    font-size:27px;
+    color: grey;
+    border-top-style: solid;
+    border-color: grey;
+    background-color:#FFFFEE;
+}
+
+.event-box-title{
+    margin:1px 20px;
+    padding: 0.8px 10px;
+    font-size:26px;
+    color: black;
+    font-weight: 700;
+    display: block;
+}
+p.event-box-title{background: linear-gradient(transparent 60%, #ffff66 60%);}
+.event-box-2{
+    margin:12px;
+    padding:0px 20px;
+    font-size:27px;
+    color: grey;
+    border-top-style: solid;
+    border-color: grey;
+}
+.event-box-text{
+    margin:12px 30px;
+    font-size:21px;
+    color: grey;
+    background-color:#FFFFEE;
+}
+
+.marker_yellow_hoso {
+background: linear-gradient(transparent 60%, #ffff66 60%);
+}
+.marker_eventname {
+background: linear-gradient(transparent 60%, #FF8C00 80%);
+}
+
+.text_area {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+}
+.text_area p {
+    margin: 0; 
+    padding: 0;
+}

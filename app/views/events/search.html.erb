@@ -1,0 +1,57 @@
+<% @search_events.each do |s| %>
+	<div class="col-xs-12">
+     <div class = "event-box">
+
+				<div class="event-box-img" >
+					<%= image_tag s.picture %>
+
+					<%= image_tag s.picture2 %>
+				</div>
+
+			<div class="event-details">	
+				<div class="event-box-eventname">
+					「
+					<span class="marker_eventname">		
+					<%= s.eventname %>
+				    </span>
+				    」
+				</div>
+				<div class="event-box-1">
+
+					<span class="event-box-title"><span class="marker_yellow_hoso">参加費:</span>&emsp;¥<%= s.cost %>
+					</span>
+
+					<span class="event-box-title"><span class="marker_yellow_hoso">時間:</span>&emsp;<%= s.when.strftime('%m月%d日 %H：%M') %> 〜
+					</span>
+					　　　　　
+					<span class="event-box-title"><span class="marker_yellow_hoso">場所:</span>&emsp;<%= s.where %>
+					</span>
+
+	　　　　　　　</div>
+
+				<div class="event-box-2">
+					<span class="marker_yellow_hoso"><%= link_to "#{s.user.clubname}", user_path(s.user.id), method: :get %>さんから、ひと言！&emsp;
+					</span>
+
+
+						<% if s.user.clubtype == '1' %>
+							<div class="clubtype-tag1" >部活</div>
+						<% elsif s.user.clubtype == '2' %>
+							<div class="clubtype-tag2">サークル</div>
+						<% elsif s.user.clubtype == '3' %>
+							<div class="clubtype-tag3">学生団体</div>
+						<% elsif s.user.clubtype == '4' %>
+							<div class="clubtype-tag4">その他</div>
+						<% end %>	
+				</div>
+　　　　　　　
+				<div class="event-box-text"><%= s.text %>
+				</div>
+
+			</div>
+    </div>
+    </div>
+<% end %>
+     
+
+

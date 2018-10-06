@@ -1,0 +1,13 @@
+<div class="contents row">
+  <p><%= @event.user.clubname %>さんの投稿一覧</p>
+
+  	<%= link_to "編集する",edit_user_path, method: :get  %>
+  <% @events.each do |event| %>
+  <div class= "box18">
+    <p>イベント名：<%= event.eventname %></p>
+    <p>参加費：<%= event.cost %></p>
+    </div>
+  <% end %>
+
+</div>
+

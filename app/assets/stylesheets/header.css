@@ -1,0 +1,44 @@
+@import "bootstrap-sprocket";
+@import "bootstrap";
+
+.header{
+padding: 10px 20px;
+margin:0;
+border-bottom: solid 4px;
+border-top:solid 10px;
+border-color: #FF8C00;
+position:relative;
+}
+.header-title > a{
+    margin: 1px;
+    padding: 1px;
+    color: black;
+    font-weight:1700 ;
+    font-size: 50px;
+    text-align: left;
+  }
+.header-title:hover{
+     color: black ;
+}
+.header-login-username {
+    margin: 0px;
+    padding: 3px;
+    color:black;
+    font-size:27px;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.header-another a > {
+    text-align: right;
+    bottom: 0px;
+    right: 0px;
+    font-weight:500 ;
+    font-size: 35px;
+    display:inline;
+    /*position:absolute;*/
+}
+.header-menu{
+    padding:10px 0px;
+    display:inline;
+}

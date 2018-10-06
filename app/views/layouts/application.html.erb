@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>サークル紹介サービス</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+		<% flash.each do |name, msg| %>
+		  <div class="alert alert-<%= name %>">
+		    <%= msg.html_safe %>
+		  </div>
+		<% end %>
+    <div class="body-class">
+    <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
+
+

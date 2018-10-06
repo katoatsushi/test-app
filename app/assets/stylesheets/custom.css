@@ -1,0 +1,90 @@
+@import "bootstrap-sprocket";
+@import "bootstrap";
+/*以下の３色しか使わない
+　　#0000FF
+    #00FFFF
+    #E0FFFF*/
+
+/*:link   通常時のリンクのスタイル
+:visited    すでに一度閲覧した後のリンクのスタイル
+:hover  マウスカーソルがリンクの上に来たときのスタイル
+:active マウスカーソルがリンクの上でクリックされたときのスタイル*/
+
+a { text-decoration:none;
+font-size :40px;
+color:black;
+font-weight:650;}
+a:link { color : black;
+ }
+a:visited { color : black; }
+a:hover{
+    color: #A9A9A9 ;
+　　cursor: pointer;
+　　transform: scale(1.2);
+-webkit-transition: all .3s ease;
+border-bottom: solid 4px #f00;
+}
+
+h1 { text-decoration:none;
+font-size :8px;
+color:grey;}
+}
+/*h1:link{
+
+}
+h1:visited{}
+h1:hover{}*/
+h2{
+    text-decoration:none;
+font-size :40px;}
+}
+.click {
+    background: green;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+    margin: 30px auto;
+    border-radius: 50%;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.click:active {
+    -webkit-box-shadow:
+    0 0 0 15px #fff,
+    0 0 0 18px green;
+    -moz-box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px green;
+    box-shadow:
+        0 0 0 15px #fff,
+    0 0 0 18px green;
+}
+
+.body-class{
+　/*ayout/applicationの18行目*/
+　width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+
+p.eventname {
+font-family: 'ヒラギノ丸ゴ ProN W4',
+'Hiragino Maru Gothic ProN','ヒラギノ角ゴ Std W8',
+'Hiragino Kaku Gothic Std','Meiryo UI';
+font-size: 30px;
+letter-spacing: 1.2em;
+}
+
+p.text {
+    font-family: 'Comic Sans MS';
+    color: grey;
+    font-size: 17px;
+}
+

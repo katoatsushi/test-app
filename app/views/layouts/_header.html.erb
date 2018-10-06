@@ -1,0 +1,72 @@
+<header>
+<div class="container">
+<!-- <div class="header"> -->
+  <% if user_signed_in? %>
+  <!-- ログインしてるユーザーによって背景色の分岐 -->
+      <% if current_user.clubtype == '1' %>
+        <div class="header" style = 'background-color: blue;'>
+      <% elsif current_user.clubtype == '2' %>
+        <div class="header" style = 'background-color: green;'>
+      <% elsif current_user.clubtype == '3'  %>
+        <div class="header" style = 'background-color: red;'>
+      <% elsif current_user.clubtype == '4' %>
+        <div class="header" style = 'background-color: grey;'>
+      <% end %>
+  <% else %>
+    <div class="header" style = 'background-color: white;'>
+  <% end %>
+<div class="row">
+  <span class="header-title">
+      <div class="col-sm-4">
+            <%= link_to "さーくるネット", root_path, method: :get %>
+      </div>
+  </span>
+    <div class="col-sm-8">
+  <!-- <div class="header-another"> -->
+      <% if user_signed_in? %>
+        <!-- <div class="header-another"> -->
+          <div class="header-menu">
+            <%= link_to "マイページ", user_path(current_user.id),method: :get %>
+          </div>
+          <div class="header-menu">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
+          <div class="header-menu">
+            <%= link_to "投稿する", new_event_path, method: :get %>  
+          </div>
+
+      <% else %>
+          <%= link_to "サークルの方はこちら", user_register_or_session_path,method: :get %>
+              <% if customer_signed_in? %>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+              <マイページ、マイページに飛んだらログアウト、アカウント削除ができる>
+              <% else %>
+                <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
+                <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
+              <% end %>
+      <% end %>
+    </div>
+</div>
+
+
+<!-- 検索機能実装 -->
+  <dl class="searchbox">
+  <%= search_form_for @search, url: search_event_path do |f| %>
+    <dt><%= f.text_field :eventname_or_where_cont ,placeholder: 'イベント名または場所で検索...' %></dt>
+    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+  </dl>
+<!-- ここまで -->
+  <div class="header-login-username">
+    <% if user_signed_in? %>
+            <span>[<%=current_user.clubname %>]さんログイン</span>
+    <% else %>
+    <span> ゲストさん</span>
+    <% end %>
+  </div>
+</div>
+</div>
+</header>
+
+
+
