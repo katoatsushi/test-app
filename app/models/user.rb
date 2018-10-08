@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   # has_many :clips, dependent: :destroy #この行を追記することで関連付くイベントが削除されるとclipも削除されます。
   # has_many :events, through: :clips
-  attachment :profile_image
+  # attachment :profile_image
+  mount_uploader :profile_img, PictureUploader
 
   def fetch_events_from_today_until(datetime)
      self.events.fetch_events_from_today_until(datetime)
@@ -16,7 +17,8 @@ class User < ApplicationRecord
 		  
 		  def initialize(*)
 		    super
-		    permit(:sign_up, keys: [:clubname, :clubtype])
+		    permit(:sign_up, keys: [:clubname, :clubtype, :text, :population, :profile_image, :profile_img ])
+        permit(:account_update, keys: [:clubname, :clubtype, :text, :population, :profile_image, :profile_img ])
 		  end
   end
   

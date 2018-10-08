@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :destroy,:new,  :edit, :update, :create, :show]
   get 'search_event', to: 'events#search'
   resources :users, only: [:show ,:edit, :update]
-  resources :custmoers, only: [:show]
+  resources :customers, only: [:show]
   # get 'user/:id'  =>  'users#index'	
 
   root 'events#index'

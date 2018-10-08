@@ -1,0 +1,16 @@
+<div class="contents row">
+	<% if customer_signed_in? %>
+		<p><%= current_customer.name %>さんのホーム
+		</p>
+		<h2>保存したイベント</h2>
+		<% @clips.each do |clip| %>
+		<% event = Event.find(clip.event.id) %>
+		　<!-- 自分の保存したイベント一覧 -->
+			<div class= "event-box">
+			　<p>イベント名：<%= event.eventname %>
+			　</p>
+			　<p>参加費：<%= event.cost %></p>
+			</div>
+		<% end %>
+	<% end %>
+</div>

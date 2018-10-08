@@ -1,0 +1,35 @@
+@import "bootstrap-sprocket";
+@import "bootstrap";
+/** {
+  box-sizing: border-box;
+}
+.column {
+  margin-bottom: 20px;
+}*/
+
+/*
+
+textarea {
+  border: 1px;
+  outline: 0;
+  width :300px;
+  height: 300px;
+}
+
+.input-text textarea {
+  padding: 3px 5px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  font-size: 16px;
+  transition: border-color ease .2s;
+  resize: none;
+}
+
+.input-text textarea:focus {
+  border-color: #5f98e1;
+}*/
+textarea {
+resize: both;
+ width :300px;
+  height: 200px;
+}

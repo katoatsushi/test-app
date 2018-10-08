@@ -12,6 +12,16 @@ class Event < ApplicationRecord
   def self.fetch_events_from_today_until(datetime)
    Event.where("when BETWEEN ? AND ?", DateTime.now, datetime)
   end
+  # 以内のイベント
+  scope :in3days, -> from, to {
+      if from.present? && to.present?
+        where(when: from..to)
+      elsif from.present?
+        where('when >= ?', from)
+      elsif to.present?
+        where('when <= ?', to)
+      end
+  }
 
    private
 

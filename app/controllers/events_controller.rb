@@ -4,9 +4,11 @@ class EventsController < ApplicationController
   def index
    @events = Event.all.order("id DESC")
    # @eventin3= Event.fetch_events_from_today_until(DateTime.now.since(3.days))
-   to    = (DateTime.now + 3.day)
-   @events_in_3days = Event.fetch_events_from_today_until(to)
-  
+   # to    = (DateTime.now + 3.day)
+   # @events_in_3days = Event.fetch_events_from_today_until(to)
+   # to    = (DateTime.now + 3.day)
+   # ３日以内に開催されるイベント
+   @events_in_3_days = Event.in3days(DateTime.now, DateTime.now.since(3.day))
   end
 
   def show
@@ -46,15 +48,15 @@ class EventsController < ApplicationController
   def search
   end
 
-private
-   def event_params
-   	params.require(:event).permit(:eventname, :when, :where, :cost, :text, :picture, :picture2 , user_id: current_user.id)
-   end
-   #form_tagの場合は上記のrequire(:event)はいらない、
-   #form_forはモデルに元ずいてハッシュを作るので、１回eventモデルを呼び出す必要があった。
+  private
+       def event_params
+       	params.require(:event).permit(:eventname, :when, :where, :cost, :text, :picture, :picture2 , user_id: current_user.id)
+       end
+       #form_tagの場合は上記のrequire(:event)はいらない、
+       #form_forはモデルに元ずいてハッシュを作るので、１回eventモデルを呼び出す必要があった。
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
+      def move_to_index
+        redirect_to action: :index unless user_signed_in?
+      end
     
 end

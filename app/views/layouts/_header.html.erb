@@ -4,13 +4,13 @@
   <% if user_signed_in? %>
   <!-- ログインしてるユーザーによって背景色の分岐 -->
       <% if current_user.clubtype == '1' %>
-        <div class="header" style = 'background-color: blue;'>
+        <div class="header" style = 'background-color: #75A9FF;'>
       <% elsif current_user.clubtype == '2' %>
-        <div class="header" style = 'background-color: green;'>
+        <div class="header" style = 'background-color: #78FF94;'>
       <% elsif current_user.clubtype == '3'  %>
-        <div class="header" style = 'background-color: red;'>
+        <div class="header" style = 'background-color: #FF82B2;'>
       <% elsif current_user.clubtype == '4' %>
-        <div class="header" style = 'background-color: grey;'>
+        <div class="header" style = 'background-color: #CCCCCC;'>
       <% end %>
   <% else %>
     <div class="header" style = 'background-color: white;'>
@@ -40,6 +40,7 @@
               <% if customer_signed_in? %>
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
               <マイページ、マイページに飛んだらログアウト、アカウント削除ができる>
+              <%= link_to "マイページ", customer_path(current_customer.id), method: :get %>
               <% else %>
                 <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
                 <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
@@ -57,9 +58,12 @@
   <% end %>
   </dl>
 <!-- ここまで -->
+
   <div class="header-login-username">
     <% if user_signed_in? %>
-            <span>[<%=current_user.clubname %>]さんログイン</span>
+            <span>[<%=current_user.clubname %>]さんログイン中</span>
+    <% elsif customer_signed_in? %>
+            <span>[<%=current_customer.name %>]さんログイン中</span>
     <% else %>
     <span> ゲストさん</span>
     <% end %>

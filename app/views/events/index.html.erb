@@ -1,11 +1,8 @@
 <% @events.each do |event| %>
 	<div class="col-xs-12">
      <div class = "event-box">
-　　　　  <%= link_to event do %>
-
 				<div class="event-box-img" >
 					<%= image_tag event.picture %>
-
 					<%= image_tag event.picture2 %>
 				</div>
 
@@ -13,28 +10,22 @@
 				<div class="event-box-eventname">
 					「
 					<span class="marker_eventname">		
-					<%= event.eventname %>
+						<%= link_to event.eventname, event_path(event.id), method: :get  %>
 				    </span>
 				    」
 				</div>
 				<div class="event-box-1">
-
 					<span class="event-box-title"><span class="marker_yellow_hoso">参加費:</span>&emsp;¥<%= event.cost %>
 					</span>
-
 					<span class="event-box-title"><span class="marker_yellow_hoso">時間:</span>&emsp;<%= event.when.strftime('%m月%d日 %H：%M') %> 〜
-					</span>
-					　　　　　
+					</span>　　　　　
 					<span class="event-box-title"><span class="marker_yellow_hoso">場所:</span>&emsp;<%= event.where %>
 					</span>
-
 	　　　　　　　</div>
 
 				<div class="event-box-2">
 					<span class="marker_yellow_hoso"><%= link_to "#{event.user.clubname}", user_path(event.user.id), method: :get %>さんから、ひと言！&emsp;
 					</span>
-
-
 						<% if event.user.clubtype == '1' %>
 							<div class="clubtype-tag1" >部活</div>
 						<% elsif event.user.clubtype == '2' %>
@@ -45,22 +36,18 @@
 							<div class="clubtype-tag4">その他</div>
 						<% end %>	
 				</div>
-　　　　　　　
 				<div class="event-box-text"><%= event.text %>
 				</div>
-
-	            <% if user_signed_in? || customer_signed_in? %>
-	              <span class="clip_btn"><%= link_to "このイベントをクリップ", add_event_path(event), method: :post %>
-				  </span>
-
+		            <% if customer_signed_in? %>
+		              	<span class="clip_btn"><%= link_to "このイベントをクリップ", add_event_path(event), method: :post %>
+					  	</span>
+					<% end %>
 					<% if user_signed_in? && event.user_id == current_user.id %>
 						<%= link_to "削除", event, method: :delete %>
 						<!--   path名はevent,メソッドはdelete -->
 						<%= link_to "編集", edit_event_path(event.id) %>
 					<% end %>
-				<% end %>
 			</div>
-		<% end %>
     </div>
     </div>
 <% end %>

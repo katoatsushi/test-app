@@ -5,7 +5,7 @@ class CreateClips < ActiveRecord::Migration[5.1]
       t.references :event, null:false
       t.timestamps
     end
-      # add_index :clips, :user_id
+      # add_index :clips, :customer_id
       # add_index :clips, :event_id
       add_index :clips, [:customer_id ,:event_id]
       #spliteの書き方

@@ -1,11 +1,29 @@
 <h2>編集ページ <%= resource_name.to_s.humanize %></h2> 
-<h2>編集ページ</h2>
+<h2>このページは<%= @user.clubname %>しか編集できません。</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+<!-- Userに編集でトプ画を追加してもらう -->
+  <div class="field">
+     <strong>連絡先用 QRコード</strong>
+    <%= f.label :トプ画 %><br />
+    <%= f.file_field :profile_img %>
+  </div>
+<!-- トプ画ここまで -->
+ <div class="field">
+
+    <%= f.label :メッセージ %><br />
+    <p>新入生に向けてメッセージを書いて見ましょう！(書かれたメッセージは<%=@user.clubname%>のホームページに反映されます)</p>
+    <%= f.text_area :text, :placeholder => "例：
+    みなさん、こんにちは！#{@user.clubname}です！#{@user.clubname}は創立５年のサークルで今や数々の大学から300人ものメンバーが切っていただけるようになりました！僕たちは最高の仲間たちを楽しい思い出作りをモットーに活動しています！！を大学生活４年間を#{@user.clubname}で過ごしてみませんか？
+    元気な１年生たち集まれ〜
+
+    ＊あくまで例です"  %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
