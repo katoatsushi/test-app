@@ -9,8 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 gem 'devise'
+gem 'data-confirm-modal'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bootstrap-datetimepicker-rails'
+gem 'bootstrap', '~> 4.1.1'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'rails-i18n' # この行を追加(ransackには関係ないけどdate_select用)
@@ -23,8 +25,11 @@ gem 'mini_magick'
 gem 'fog'
 gem 'kaminari'
 gem 'mysql2'
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+gem 'execjs'
+gem 'devise-bootstrap-views'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

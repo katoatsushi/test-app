@@ -1,0 +1,43 @@
+@import "bootstrap-sprocket";
+@import "bootstrap";
+/*サークルですか？の新規登録、ログインボタン*/
+.cp_btn {
+  /*display: block;*/
+  display:inline-block;
+  /*width: 160px;*/
+  padding: 0.8em;
+  margin:20px 0px;
+  text-align: center;
+  text-decoration: none;
+  color: #EC407A;
+  border: 2px solid #EC407A;
+  border-radius: 3px;
+  transition: .4s;
+
+}
+.cp_btn:hover {
+  background: #EC407A;
+  color: #fff;
+}
+
+
+#register a
+  {
+  text-decoration:none;
+font-size :20px;
+color:black;
+font-weight:300;
+  }
+#register a:link{
+color : black;
+  }
+#register a:visited{
+    color : black;
+  }
+#register a:hover{
+     color: #A9A9A9 ;
+　　cursor: pointer;
+　　transform: scale(1.2);
+-webkit-transition: all .3s ease;
+border-bottom: solid 4px #f00;
+  }

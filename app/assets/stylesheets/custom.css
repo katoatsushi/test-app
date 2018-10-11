@@ -1,5 +1,7 @@
-@import "bootstrap-sprocket";
-@import "bootstrap";
+/* @import "devise-bootstrap-views";*/
+ @import "bootstrap";
+ @import "bootstrap-sprocket";
+ @import "font-awesome";
 /*以下の３色しか使わない
 　　#0000FF
     #00FFFF
@@ -10,7 +12,7 @@
 :hover  マウスカーソルがリンクの上に来たときのスタイル
 :active マウスカーソルがリンクの上でクリックされたときのスタイル*/
 
-a { text-decoration:none;
+/*a { text-decoration:none;
 font-size :40px;
 color:black;
 font-weight:650;}
@@ -23,12 +25,11 @@ a:hover{
 　　transform: scale(1.2);
 -webkit-transition: all .3s ease;
 border-bottom: solid 4px #f00;
-}
+}*/
 
 h1 { text-decoration:none;
 font-size :8px;
 color:grey;}
-}
 /*h1:link{
 
 }
@@ -37,6 +38,10 @@ h1:hover{}*/
 h2{
     text-decoration:none;
 font-size :40px;}
+
+h3{
+   text-decoration:none;
+font-size :60px; 
 }
 .click {
     background: green;
@@ -87,4 +92,5 @@ p.text {
     color: grey;
     font-size: 17px;
 }
+
 

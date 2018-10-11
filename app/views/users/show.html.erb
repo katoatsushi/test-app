@@ -1,64 +1,107 @@
-<div class="contents row">
-<!-- <p>主な参加大学,名古屋大学、南山大学</p> 
-
-<p>サークルの人数,男女比</p> -->
-
-<% if user_signed_in? && @user.id == current_user.id %>
-<%= link_to "編集する",edit_user_registration_path, method: :get %>
+<div class="container">
+<!-- ログインしているユーザー以外が見ることができる -->
+<% if !user_signed_in? %>
+	<section class="myModal">
+	  <input id="myModal_open" type="radio" name="myModal_switch" />
+	  <label for="myModal_open" class="open_button">申し込む</label>
+	  <input id="myModal_close-overlay" type="radio" name="myModal_switch" />
+	  <label for="myModal_close-overlay">オーバーレイで閉じる</label>
+	  <input id="myModal_close-button" type="radio" name="myModal_switch" />
+	  <label for="myModal_close-button"></label>
+	  <div class="myModal_popUp">
+	  <div class="myModal_popUp-content">
+	    <p>こちらから申し込みを行ってください。</p><%= image_tag @event.user.contact_address1 %>
+	  </div>
+	 </div>
+	</section>
 <% end %>
 
-<%= image_tag @user.profile_img%>
-<div class="tabs">
-    <input id="all" type="radio" name="tab_item" checked>
-    	<label class="tab_item" for="all">活動について</label>
-    <input id="programming" type="radio" name="tab_item">
-    	<label class="tab_item" for="programming">年間イベント</label>
-    <input id="design" type="radio" name="tab_item">
-    	<label class="tab_item" for="design">メッセージ</label>
-	    <div class="tab_content" id="all_content">
-	    	<strong>活動内容:</strong> <!-- カラム名＝ what_we_do -->
-	    	<br><strong>活動日数:</strong> <!-- カラム名＝ how_often_we_do -->
-	    	<br><strong>活動場所(主に):</strong><!-- カラム名＝ where_we_do -->
-	    	<br><strong>どんな雰囲気？:</strong> <!-- カラム名＝ atmosphere -->
-	    </div>
-	    <div class="tab_content" id="programming_content">
-	        <!-- カラム名= annual_events -->
-	    </div>
-	    <div class="tab_content" id="design_content">
-	        <!-- カラム名＝text (すでにある) -->
-	        <%= @user.text %>
-	    </div>
-</div>
-
-	<% if user_signed_in? && current_user.id == @user.id %>
-		<p><%= current_user.clubname %>さんの投稿一覧
-		</p>
-		<% @my_events.each do |event| %>
-		　<!-- 自分の投稿したイベント一覧 -->
-			<div class= "event-box">
-		     <p>イベント名 : <strong><%= event.eventname %></strong>
-			 </strong>
-			 <p>参加費 : <%= event.cost %></p>
-			 <p>開催場所 : <%= event.where %>
-			 <p>開催日時 : <%= event.when.strftime('%m月%d日 %H：%M') %>
-			 </p>
+<% if @event.blank? %>
+	<%= image_tag current_user.profile_img%>
+	<div class="tabs">
+		<input id="all" type="radio" name="tab_item" checked>
+			<label class="tab_item" for="all">活動について</label>
+		<input id="programming" type="radio" name="tab_item">
+			<label class="tab_item" for="programming">年間イベント</label>
+		<input id="design" type="radio" name="tab_item">
+			<label class="tab_item" for="design">メッセージ</label>
+			<div class="tab_content" id="all_content">
+				活動内容: <%= current_user.what_we_do %>
+				<br>活動日数: <%= current_user.how_often_we_do %>
+				<br>活動場所(主に): <%= current_user.where_we_do %>
+				<br>どんな雰囲気？: <%= current_user.atmosphere %>
 			</div>
-		<% end %>
-	<% else %>
+			<div class="tab_content" id="programming_content">
+		     <!-- カラム名= annual_events -->
+				<%= current_user.annual_events %>
+			</div>
+			<div class="tab_content" id="design_content">
+			<!-- カラム名＝text (すでにある) -->
+				<%= current_user.text %>
+			</div>
+	</div>
+<% else %>
+	<%= image_tag @event.user.profile_img%>
+	<div class="tabs">
+		<input id="all" type="radio" name="tab_item" checked>
+			<label class="tab_item" for="all">活動について</label>
+		<input id="programming" type="radio" name="tab_item">
+			<label class="tab_item" for="programming">年間イベント</label>
+		<input id="design" type="radio" name="tab_item">
+			<label class="tab_item" for="design">メッセージ</label>
+			<div class="tab_content" id="all_content">
+				活動内容: 
+				<%= @event.user.what_we_do %>
+				<br>活動日数: 
+				<%= @event.user.how_often_we_do %>
+				<br>活動場所(主に):
+				<%= @event.user.where_we_do %>
+				<br>どんな雰囲気？: 
+				<%= @event.user.atmosphere %>
+			</div>
+			<div class="tab_content" id="programming_content">
+		     <!-- カラム名= annual_events -->
+				<%= @event.user.annual_events %>
+			</div>
+			<div class="tab_content" id="design_content">
+			<!-- カラム名＝text (すでにある) -->
+				<%= @event.user.text %>
+			</div>
+	</div>
+<% end %>
 
-	　　 <!-- 以下、他の人のホームページに行った時 -->
-	　　 <p>&emsp;&emsp;<%= @user.clubname %>さんの投稿一覧</p>
-	    <% @events.each do |event| %>
-	    <!-- 他の人のホームページの投稿一覧 -->
-		　  <div class= "event-box">
-			 <p>イベント名 : <strong><%= event.eventname %></strong>
-			 </strong>
-			 <p>参加費 : <%= event.cost %></p>
-			 <p>開催場所 : <%= event.where %>
-			 <p>開催日時 : <%= event.when.strftime('%m月%d日 %H：%M') %>
-			 </p>
-
-		　  </div>
-	    <% end %>
-    <% end %>
+<div class="contents row">
+	<div class="col-md-12">
+			<% if user_signed_in? && @event.blank? %>
+			<!-- マイページの投稿一覧 -->
+				<p><%= current_user.clubname %>さんの投稿一覧
+				</p>
+				<% @my_events.each do |event| %>
+				　<!-- 自分の投稿したイベント一覧 -->
+					<div class= "event-box">
+					     <p>イベント名 : <strong><%= event.eventname %></strong>
+						 </strong></p>
+						 <p>参加費 : <%= event.cost %></p>
+						 <p>開催場所 : <%= event.where %></p>
+						 <p>開催日時 : <%= event.when.strftime('%m月%d日 %H：%M') %>
+						 </p>
+					</div>
+				<% end %>
+			<% else %>
+			<!-- 以下、他の人のホームページに行った時 -->
+			<p>&emsp;&emsp;<%= @event.user.clubname %>さんの投稿一覧 </p>
+			    <% @events.each do |event| %>
+			    <!-- 他の人のホームページの投稿一覧 -->
+				　  <div class= "event-box">
+						 <p>イベント名 : <strong><%= event.eventname %></strong>
+						 </strong></p>
+						 <p>参加費 : <%= event.cost %></p>
+						 <p>開催場所 : <%= event.where %></p>
+						 <p>開催日時 : <%= event.when.strftime('%m月%d日 %H：%M') %>
+						 </p>
+				　  </div>
+			<% end %>
+			<% end %>
+	</div>
+</div>
 </div>

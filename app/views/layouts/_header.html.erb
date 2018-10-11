@@ -1,75 +1,92 @@
 <header>
-<div class="container">
-<!-- <div class="header"> -->
-  <% if user_signed_in? %>
-  <!-- ログインしてるユーザーによって背景色の分岐 -->
-      <% if current_user.clubtype == '1' %>
-        <div class="header" style = 'background-color: #75A9FF;'>
-      <% elsif current_user.clubtype == '2' %>
-        <div class="header" style = 'background-color: #78FF94;'>
-      <% elsif current_user.clubtype == '3'  %>
-        <div class="header" style = 'background-color: #FF82B2;'>
-      <% elsif current_user.clubtype == '4' %>
-        <div class="header" style = 'background-color: #CCCCCC;'>
-      <% end %>
-  <% else %>
-    <div class="header" style = 'background-color: white;'>
-  <% end %>
-<div class="row">
-  <span class="header-title">
-      <div class="col-sm-4">
-            <%= link_to "さーくるネット", root_path, method: :get %>
-      </div>
-  </span>
-    <div class="col-sm-8">
-  <!-- <div class="header-another"> -->
+  <div class="container">
+    <div class="header-container">
       <% if user_signed_in? %>
-        <!-- <div class="header-another"> -->
-          <div class="header-menu">
-            <%= link_to "マイページ", user_path(current_user.id),method: :get %>
-          </div>
-          <div class="header-menu">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </div>
-          <div class="header-menu">
-            <%= link_to "投稿する", new_event_path, method: :get %>  
-          </div>
-
+      <!-- ログインしてるユーザーによって背景色の分岐 -->
+          <% if current_user.clubtype == '1' %>
+            <div class="header" style = 'background-color: #75A9FF;'></div>
+          <% elsif current_user.clubtype == '2' %>
+            <div class="header" style = 'background-color: #78FF94;'></div>
+          <% elsif current_user.clubtype == '3'  %>
+            <div class="header" style = 'background-color: #FF82B2;'></div>
+          <% elsif current_user.clubtype == '4' %>
+            <div class="header" style = 'background-color: #CCCCCC;'></div>
+          <% end %>
       <% else %>
-          <%= link_to "サークルの方はこちら", user_register_or_session_path,method: :get %>
-              <% if customer_signed_in? %>
-              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-              <マイページ、マイページに飛んだらログアウト、アカウント削除ができる>
-              <%= link_to "マイページ", customer_path(current_customer.id), method: :get %>
-              <% else %>
-                <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
-                <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
-              <% end %>
+        <div class="header" style = 'background-color: white;'></div>
       <% end %>
+
+      <div class="row">
+      <!-- <span class="header-title"> -->
+        <% if user_signed_in? %>
+          <input type="checkbox" id="navTgl">
+            <label for="navTgl" class="open">≡</label>
+            <label for="navTgl" class="close"></label>
+          <nav class="menu">
+            <p>メニュー</p>
+            <ul> 
+              <li><%= link_to "ホーム", root_path,method: :get %>
+              </li>
+              <li><%= link_to "マイページ", user_path(current_user.id),method: :get %>
+              </li>
+              <li> <%= link_to "投稿する", new_event_path, method: :get %>
+              </li>
+              <li><%= link_to "編集する",edit_user_registration_path, method: :get %>
+              </li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+              <li><%= link_to "使い方", how_to_use_for_user_path, method: :get %></li>
+            </ul>
+          </nav>
+        <% elsif customer_signed_in? %>
+          <input type="checkbox" id="navTgl">
+            <label for="navTgl" class="open">≡</label>
+            <label for="navTgl" class="close"></label>
+          <nav class="menu">
+            <p>メニュー</p>
+            <ul>
+              <li><%= link_to "ホーム", root_path,method: :get %>
+              </li>
+              <li><%= link_to "マイページ", customer_path(current_customer.id), method: :get %>
+              </li>
+              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+              </li>
+              <li><%= link_to "使い方", how_to_use_for_customer_path, method: :get %></li>
+            </ul>
+          </nav>
+        <% else %>
+            <%= link_to "サークルの方はこちら", user_register_or_session_path,method: :get %>
+            <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
+            <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
+        <% end %>
+
+          <p id="header-title">
+                <%= link_to "さーくるネット", root_path, method: :get %>
+          </p>
+
+      </div>
+
+
+      <!-- 検索機能実装 -->
+      <dl class="searchbox">
+        <%= search_form_for @search, url: search_event_path do |f| %>
+          <dt><%= f.text_field :eventname_or_where_cont ,placeholder: 'イベント名または場所で検索...' %></dt>
+          <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+        <% end %>
+      </dl>
+      <!-- ここまで -->
+
+      <!--   <div class="header-login-username">
+        <% if user_signed_in? %>
+                <span>[<%=current_user.clubname %>]さんログイン中</span>
+        <% elsif customer_signed_in? %>
+                <span>[<%=current_customer.name %>]さんログイン中</span>
+        <% else %>
+        <span> ゲストさん</span>
+        <% end %>
+      </div> -->
     </div>
-</div>
-
-
-<!-- 検索機能実装 -->
-  <dl class="searchbox">
-  <%= search_form_for @search, url: search_event_path do |f| %>
-    <dt><%= f.text_field :eventname_or_where_cont ,placeholder: 'イベント名または場所で検索...' %></dt>
-    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-  <% end %>
-  </dl>
-<!-- ここまで -->
-
-  <div class="header-login-username">
-    <% if user_signed_in? %>
-            <span>[<%=current_user.clubname %>]さんログイン中</span>
-    <% elsif customer_signed_in? %>
-            <span>[<%=current_customer.name %>]さんログイン中</span>
-    <% else %>
-    <span> ゲストさん</span>
-    <% end %>
   </div>
-</div>
-</div>
 </header>
 
 

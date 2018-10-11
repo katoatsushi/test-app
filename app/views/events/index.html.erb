@@ -43,7 +43,7 @@
 					  	</span>
 					<% end %>
 					<% if user_signed_in? && event.user_id == current_user.id %>
-						<%= link_to "削除", event, method: :delete %>
+						<%= link_to "削除", event, method: :delete , data: { confirm: '本当に削除しますか？' } %>
 						<!--   path名はevent,メソッドはdelete -->
 						<%= link_to "編集", edit_event_path(event.id) %>
 					<% end %>

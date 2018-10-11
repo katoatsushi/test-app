@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   # get 'user/:id'  =>  'users#show'
   # プロフィール詳細追加用
 
+  # 使い方のページ
+  get 'how_to_use_for_user', to: 'users#user_how_to_use'
+  get 'how_to_use_for_customer', to: 'customers#customer_how_to_use'
 
   resources :events do
   member do
@@ -38,5 +41,13 @@ Rails.application.routes.draw do
 
   resources :clips, only: [:destroy]
 
-
+# 複数ステップに分けてフォームの入力
+# resources :orders, only: [:create, :show] do
+#   new do
+#     match 'step1', via: [:get, :post]
+#     post 'step2'
+#     post 'step3'
+#     post 'confirm'
+#   end
+# end
 end

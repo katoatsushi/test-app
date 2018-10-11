@@ -3,20 +3,38 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+
+<!-- 編集時にemailを入力しなくてもアップデートできるようにしたい -->
+<!--   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
+   -->
+   <!-- 終わり -->
 <!-- Userに編集でトプ画を追加してもらう -->
   <div class="field">
-     <strong>連絡先用 QRコード</strong>
-    <%= f.label :トプ画 %><br />
+     <strong><%=@user.clubname%>のイメージ画像を選んでください。</strong>
+    <%= f.label :トプ画 %>
     <%= f.file_field :profile_img %>
   </div>
 <!-- トプ画ここまで -->
- <div class="field">
+<strong>活動内容を教えてください</strong><br>
+<%= f.text_area :what_we_do %><br>
+<strong>主に、どこで活動していますか？</strong><br>
+<%= f.text_area :where_we_do%><br>
+<strong>どのくらいの頻度で活動していますか？</strong><br>
+<%= f.text_area :how_often_we_do%><br>
+<strong><%= @user.clubname %>の雰囲気はどんな感じですか？</strong><br>
+<%= f.text_area :atmosphere%><br>
+<strong>年間のイベントを教えてください</strong><br>
+<%= f.text_area :annual_events%><br>
+<p>以下はイベントに参加したい方々が連絡を取れるように<%= @user.clubname %>さんと連絡を取れるようにするためのものです</p>
+<strong>連絡先(QRコード)を教えてください</strong>
+<%= f.file_field :contact_address1%>
+<strong>連絡先(QRコード)を教えてください</strong>
+<%= f.file_field :contact_address2%>
 
+ <div class="field">
     <%= f.label :メッセージ %><br />
     <p>新入生に向けてメッセージを書いて見ましょう！(書かれたメッセージは<%=@user.clubname%>のホームページに反映されます)</p>
     <%= f.text_area :text, :placeholder => "例：
@@ -25,12 +43,11 @@
 
     ＊あくまで例です"  %>
   </div>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :パスワード %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
@@ -48,14 +65,14 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+ -->
   <div class="actions">
     <%= f.submit "アップデート" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>編集をやめますか？</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+ <%= button_to "編集をやめる", registration_path(resource_name), data: { confirm: "よろしいですか？" }, method: :delete %>
 
 <%= link_to "戻る", :back %>

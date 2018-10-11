@@ -29,7 +29,7 @@
   border-bottom: 3px solid #5ab4bd;
   background-color: #d9d9d9;
   line-height: 50px;
-  font-size: 16px;
+  font-size: 26px;
   text-align: center;
   color: #565656;
   display: block;
@@ -72,3 +72,8 @@ input[name="tab_item"] {
 .marker_yellow_futo {
 background: linear-gradient(transparent 0%, #ffff66 0%);
 }
+
+/*ユーザーの連絡先（Qrコード）*/
+/*User/showのtabsの下*/
+/*https://syncer.jp/jquery-modal-window*/
+

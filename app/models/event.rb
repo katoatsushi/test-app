@@ -5,6 +5,8 @@ class Event < ApplicationRecord
 	has_many :clips
   # has_many :users, through: :clips
   has_many :users
+  
+  # has_many :customers, through: :clips
   #validate  :picture_size
 
 

@@ -9,21 +9,18 @@ class UsersController < ApplicationController
 
   def show
     # ユーザー情報取得
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @event = Event.find_by(user_id: params[:id])
     if user_signed_in? 
     #マイページ
     @my_events = Event.where(user_id: current_user.id).order('created_at desc')
-    # else
+    # @me = current_user
     end
     #それぞれのユーザーのトップページ
-    @event = Event.find(params[:id])
   
-    @the_clubname = @event.user_id
+
     # クリックしたユーザーの投稿したイベント一覧
-    @events = Event.where(user_id: @the_clubname).order('created_at desc')
-    
-    # to    = (DateTime.now + 3.day)
-    # @events_in_3days = Event.fetch_events_from_today_until(to)
+    @events = Event.where(user_id: params[:id]).order('created_at desc')
   end
 
   def edit
@@ -38,6 +35,9 @@ class UsersController < ApplicationController
   end
   
   def register_or_session
+  end
+
+  def user_how_to_use
   end
 
 end

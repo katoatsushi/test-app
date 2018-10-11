@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181006135522) do
+ActiveRecord::Schema.define(version: 20181008162009) do
 
   create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "customer_id", null: false
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 20181006135522) do
     t.integer "population"
     t.string "clubtype"
     t.string "profile_img"
+    t.string "what_we_do"
+    t.string "how_often_we_do"
+    t.string "where_we_do"
+    t.string "atmosphere"
+    t.string "anual_events"
+    t.string "contact_address1"
+    t.string "contact_address2"
+    t.string "annual_events"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

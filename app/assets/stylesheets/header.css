@@ -1,25 +1,48 @@
-@import "bootstrap-sprocket";
-@import "bootstrap";
+ @import "devise-bootstrap-views";
+ @import "bootstrap";
+ @import "bootstrap-sprocket";
+ @import "font-awesome";
 
-.header{
+.header-container{
 padding: 10px 20px;
 margin:0;
+/*width:960px;*/
 border-bottom: solid 4px;
 border-top:solid 10px;
 border-color: #FF8C00;
-position:relative;
+/*text-align: center;*/
+/*position:relative;*/
 }
-.header-title > a{
-    margin: 1px;
+.header-title {
+    margin: 10px 10px 10px 10px;
     padding: 1px;
     color: black;
     font-weight:1700 ;
     font-size: 50px;
-    text-align: left;
+    text-align: right;
   }
-.header-title:hover{
-     color: black ;
-}
+#header-title a
+  {
+margin: 0px 0px 0px 60px;
+text-decoration:none;
+font-size :40px;
+color:black;
+font-weight:650;
+  }
+#header-title a:link{
+color : black;
+  }
+#header-title a:visited{
+    color : black;
+  }
+#header-title a:hover{
+     color: #A9A9A9 ;
+　　cursor: pointer;
+　　transform: scale(1.2);
+-webkit-transition: all .3s ease;
+border-bottom: solid 4px #f00;
+  }
+
 .header-login-username {
     margin: 0px;
     padding: 3px;

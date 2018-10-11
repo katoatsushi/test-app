@@ -29,4 +29,7 @@ class CustomersController < ApplicationController
   def register_or_session
   end
 
+  def customer_how_to_use
+  end
+
 end
