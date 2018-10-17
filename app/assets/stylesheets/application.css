@@ -13,7 +13,56 @@
  *= require_tree .
  *= require_self
  */
-/* @import "devise-bootstrap-views";*/
+ @import "devise-bootstrap-views";
  @import "bootstrap";
  @import "bootstrap-sprocket";
  @import "font-awesome";
+
+
+/*フラッシュメッセージ*/
+/*ログイン、ログアウト成功時*/
+ .notice {
+  background-color: #00FFFF;
+  color: #white;
+  text-align: center;
+  padding: 10px;
+  font-size:20px;
+}
+
+.alert {
+  background-color: rgba(219, 30, 20, 0.8);
+  color: #white;
+  text-align: center;
+  padding: 10px;
+}
+.success{
+  color: #white;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(77, 188, 219, 0.8);
+}
+
+
+/*p.flash{
+  display:none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+
+  &.success {
+    background-color: rgba(77, 188, 219, 0.8);
+  }
+  &.notice {
+    background-color: rgba(237, 221, 40, 0.8);
+  }
+  &.error {
+    background-color: rgba(219, 30, 20, 0.8);
+  }
+  &.info {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}*/

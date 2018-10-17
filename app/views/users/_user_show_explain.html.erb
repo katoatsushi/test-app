@@ -1,0 +1,50 @@
+<!-- ユーザーそれぞれの活動詳細、説明 -->
+<% if user_signed_in? && current_user.id.to_s == params[:id] %>
+	<!--<%= image_tag current_user.profile_img%>-->
+	<div class="tabs">
+		<input id="all" type="radio" name="tab_item" checked>
+			<label class="tab_item" for="all">活動について</label>
+		<input id="programming" type="radio" name="tab_item">
+			<label class="tab_item" for="programming">年間イベント</label>
+		<input id="design" type="radio" name="tab_item">
+			<label class="tab_item" for="design">メッセージ</label>
+			<div class="tab_content" id="all_content">
+				活動内容: <%= current_user.what_we_do %>
+				<br>活動日数: <%= current_user.how_often_we_do %>
+				<br>活動場所(主に): <%= current_user.where_we_do %>
+				<br>どんな雰囲気？: <%= current_user.atmosphere %>
+			</div>
+			<div class="tab_content" id="programming_content">
+				<%= current_user.annual_events %>
+			</div>
+			<div class="tab_content" id="design_content">
+				<%= current_user.text %>
+			</div>
+	</div>
+<% else %>
+	<!--<%= image_tag @event.user.profile_img%>-->
+	<div class="tabs">
+		<input id="all" type="radio" name="tab_item" checked>
+			<label class="tab_item" for="all">活動について</label>
+		<input id="programming" type="radio" name="tab_item">
+			<label class="tab_item" for="programming">年間イベント</label>
+		<input id="design" type="radio" name="tab_item">
+			<label class="tab_item" for="design">メッセージ</label>
+			<div class="tab_content" id="all_content">
+				活動内容: 
+				<%= @event.user.what_we_do %>
+				<br>活動日数: 
+				<%= @event.user.how_often_we_do %>
+				<br>活動場所(主に):
+				<%= @event.user.where_we_do %>
+				<br>どんな雰囲気？: 
+				<%= @event.user.atmosphere %>
+			</div>
+			<div class="tab_content" id="programming_content">
+				<%= @event.user.annual_events %>
+			</div>
+			<div class="tab_content" id="design_content">
+				<%= @event.user.text %>
+			</div>
+	</div>
+<% end %>

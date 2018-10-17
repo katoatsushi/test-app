@@ -18,6 +18,12 @@
   </div>
 
   <div class="field">
+     <strong><%=@user.clubname%>のイメージ画像を選んでください。</strong>
+    <%= f.label :トプ画 %>
+    <%= f.file_field :profile_img %>
+  </div>
+
+  <div class="field">
     <span style="color:#F00;">＊</span><%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>

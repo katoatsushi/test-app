@@ -1,0 +1,102 @@
+/*.1 内接リサイズ
+https://qiita.com/suin/items/8de26866a8ab6ca65ba4*/
+.contain {
+    display: inline-block;
+    background-color: #ccc;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 800px;
+    height: auto;
+    /*height: 550px;*/
+    border: 1px solid #ccc;
+    background-size: contain;
+    overflow: scroll;
+}
+
+
+
+/*全体のコンテナー*/
+#stage {
+    position: relative;
+    width: 800px;
+    height: 550px;
+    margin: 0 auto;
+    overflow:hidden;
+}
+/*全てのラジオボタンを非表示に*/
+#back1,#back2,#back3,#back4,#back5,#next1,#next2,#next3,#next4,#next5{
+    display: none;
+}
+/*全ての写真を水平一列に格納したdiv、#photosにtransitionを設定*/
+#photos {
+    position:absolute;
+    top:0;
+        width:3000px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+/*各写真の並び位置を設定*/
+#photo1, #photo2, #photo3, #photo4, #photo5 {
+    position:relative;
+    float:left;
+}
+/*ボタン領域の設定*/
+.cover_left, .cover_right {
+    /*position:absolute;*/
+    position:absolute;
+    top:0;
+    width:800px;
+    height:550px;
+    display:none;
+    cursor:pointer;
+    z-index:101;
+}
+.cover_left {
+    left:0;
+}
+.cover_right {
+    left:550px;
+}
+/*ボタン領域内のボタン文字（＜、＞）の設定*/
+.cover_left span, .cover_right span {
+    position: absolute;
+    /*position:fixed;*/
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    opacity:0;
+    top: 140px;
+}
+.cover_left span {
+    left: 10px; 
+}
+.cover_right span {
+    left: 200px
+}
+/*ボタン領域hover時文字の設定*/
+.cover_right:hover > span,.cover_left:hover > span {
+    opacity:1;
+    color:#EEE;
+}
+#right1,#right2,#right3,#right4,#left2,#left3,#left4,#left5 {
+    display:none;
+}
+/*各ボタン領域がクリックされた時の#photosの行き先位置の設定*/
+#back2:checked ~ #photos { left:0; }
+#back3:checked ~ #photos,#next1:checked ~ #photos { left:-810px; }
+#back4:checked ~ #photos,#next2:checked ~ #photos { left:-1620px; }
+#back5:checked ~ #photos,#next3:checked ~ #photos { left:-2430px; }
+#next4:checked ~ #photos { left:-2400px; }
+/*ボタン領域クリック時に前表示域を消し切り替え後の表示域を表示*/
+#back2:checked ~ #n_btn label #right1 { display:block; }
+#back3:checked ~ #b_btn label #left2,#back3:checked ~ #n_btn label #right2 { display:block; }
+#back4:checked ~ #b_btn label #left3,#back4:checked ~ #n_btn label #right3 { display:block; }
+#back5:checked ~ #b_btn label #left4,#back5:checked ~ #n_btn label #right4 { display:block; }
+#next1:checked ~ #b_btn label #left2,#next1:checked ~ #n_btn label #right2 { display:block; }
+#next2:checked ~ #b_btn label #left3,#next2:checked ~ #n_btn label #right3 { display:block; }
+#next3:checked ~ #b_btn label #left4,#next3:checked ~ #n_btn label #right4 { display:block; }
+#next4:checked ~ #b_btn label #left5 { display:block; }

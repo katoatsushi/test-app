@@ -1,6 +1,10 @@
 @import "bootstrap-sprocket";
 @import "bootstrap";
 /* 検索ボックス */
+.serch_box{
+  position:absolute;
+  
+}
 dl.searchbox{
   width: 450px;
   position:relative;

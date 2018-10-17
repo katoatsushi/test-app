@@ -1,29 +1,43 @@
 class CustomersController < ApplicationController
   def show
-# 　# マイページ
-#   @current_customer = customer_signed_in?
-   @clips = Clip.where(customer_id: current_customer.id).all
-  # @my_clips = Clip.where(user_id: current_user.id).all
-  # from = DateTime.now
-  # to = DateTime.now + 3.day
-  # @clips_in_3_day = Clip.where(when BETWEEN from AND to)
-   # @clips_in_3_day = Clip.where(when: [Time.now..3.days.after])
-   # @clips_in_3_day = Clip.where(:when=> Time.now..3.days.after)
+    #マイページ
 
-   to    = (DateTime.now + 3.day)
-   @events_in_3_day = Event.fetch_events_from_today_until(to)
-   # @cliped_event_bases = Clip.where(clip_id: @clips.event_id)
+    # 期限が３日前のイベントを取得
+    @events_in_3days = Event.where(when: (DateTime.now)..(DateTime.now+3.days))
+
+    # クリップしたイベントで３日前のイベントを取得
+    # @events_in_3days.each do |event|
+    
+    #   @clips_in_3days = Clip.where(event_id:  event.id)
+
+        # if @clips_in_3days.nil?
+        # else
+        #   @clips_in_3days.each do |clip|
+        #     @cliped_event_in_3days = Event.find(clip.event.id)
+        #       flash[:notice] = "#{@cliped_event_in_3days.eventname}は３日後に開催されます"
+        #   end
+        # end
+    # end
+    # @clips_in_3days = Clip.where(event_id:  event.id).all
+
+    # 自分がクリップしたイベントを取得
+    @clips = Clip.where(customer_id: current_customer.id).all
 
   end
 
+  # # イベントをいいねする
+  # def iine(customer)
+  #   clips.create(customer_id: customer.id)
+  # end
+  # # イベントのいいねを解除する（
+  # def uniine(customer)
+  #   clips.find_by(customer_id: customer.id).destroy
+  # end
+
   def edit
-    
   end
 
   def update
-    
-    # @club.update
-    # @club.update_attributes(params)
   end
   
   def register_or_session

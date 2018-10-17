@@ -3,12 +3,13 @@ class EventsController < ApplicationController
 
   def index
    @events = Event.all.order("id DESC")
-   # @eventin3= Event.fetch_events_from_today_until(DateTime.now.since(3.days))
-   # to    = (DateTime.now + 3.day)
-   # @events_in_3days = Event.fetch_events_from_today_until(to)
-   # to    = (DateTime.now + 3.day)
    # ３日以内に開催されるイベント
-   @events_in_3_days = Event.in3days(DateTime.now, DateTime.now.since(3.day))
+   @events_in_3_days = Event.where(when: (DateTime.now)..(DateTime.now+3.days))
+   
+   # # クリックされたイベントとそうでないイベントを区別する
+   # @event = Event.find(params[:id])
+   # @clip = Clip.find_by(event_id:  @event.id)
+  
   end
 
   def show
@@ -21,7 +22,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    # binding.pry 
     event = Event.find(params[:id])
     event.destroy
     redirect_to root_path
@@ -40,7 +40,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    #binding.pry
     Event.create(eventname: event_params[:eventname], when: event_params[:when], where: event_params[:where], cost: event_params[:cost], text: event_params[:text], picture: event_params[:picture], picture2: event_params[:picture2], user_id: current_user.id)
     flash.now[:error] = "投稿に成功しました！"
   end

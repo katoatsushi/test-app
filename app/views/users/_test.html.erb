@@ -1,0 +1,63 @@
+<% if user_signed_in? && current_user.id.to_s == params[:id] %>
+<!-- 現在ログインしているユーザーがマイページを見る時 -->
+    <div id="stage">
+      <input type="radio" id="back2" name="gal" checked>
+      <input type="radio" id="back3" name="gal">
+      <input type="radio" id="back4" name="gal">
+      <input type="radio" id="back5" name="gal">
+      <input type="radio" id="next1" name="gal">
+      <input type="radio" id="next2" name="gal">
+      <input type="radio" id="next3" name="gal">
+      <input type="radio" id="next4" name="gal">
+      <div id="b_btn">
+        <label for="back2"><div id="left2" class="cover_left"><span>＜</span></div></label>
+        <label for="back3"><div id="left3" class="cover_left"><span>＜</span></div></label>
+        <label for="back4"><div id="left4" class="cover_left"><span>＜</span></div></label>
+        <label for="back5"><div id="left5" class="cover_left"><span>＜</span></div></label>
+       </div>
+      <div id="n_btn"> 
+        <label for="next1"><div id="right1" class="cover_right"><span>＞</span></div></label>
+        <label for="next2"><div id="right2" class="cover_right"><span>＞</span></div></label>
+        <!-- <label for="next3"><div id="right3" class="cover_right"><span>＞</span></div></label> -->
+        <!-- <label for="next4"><div id="right4" class="cover_right"><span>＞</span></div></label> -->
+      </div>
+      <div id="photos">
+        <div id="photo1" class="contain"><%= image_tag current_user.profile_img %></div>
+        <div id="photo2" class="contain"><%= image_tag current_user.contact_address1 %></div>
+        <div id="photo3" class="contain"><%= image_tag current_user.contact_address2 %></div>
+    <!--     <div id="photo4"><img src="wp-images/4.jpg"></div>
+        <div id="photo5"><img src="wp-images/5.jpg"></div> -->
+      </div>
+    </div>
+<% else %>
+<!-- それ以外の時 -->
+    <div id="stage">
+      <input type="radio" id="back2" name="gal" checked>
+      <input type="radio" id="back3" name="gal">
+      <input type="radio" id="back4" name="gal">
+      <input type="radio" id="back5" name="gal">
+      <input type="radio" id="next1" name="gal">
+      <input type="radio" id="next2" name="gal">
+      <input type="radio" id="next3" name="gal">
+      <input type="radio" id="next4" name="gal">
+      <div id="b_btn">
+        <label for="back2"><div id="left2" class="cover_left"><span>＜</span></div></label>
+        <label for="back3"><div id="left3" class="cover_left"><span>＜</span></div></label>
+        <label for="back4"><div id="left4" class="cover_left"><span>＜</span></div></label>
+        <label for="back5"><div id="left5" class="cover_left"><span>＜</span></div></label>
+       </div>
+      <div id="n_btn"> 
+        <label for="next1"><div id="right1" class="cover_right"><span>＞</span></div></label>
+        <label for="next2"><div id="right2" class="cover_right"><span>＞</span></div></label>
+        <!-- <label for="next3"><div id="right3" class="cover_right"><span>＞</span></div></label> -->
+        <!-- <label for="next4"><div id="right4" class="cover_right"><span>＞</span></div></label> -->
+      </div>
+      <div id="photos">
+        <div id="photo1" class="contain"><%= image_tag @event.user.profile_img %></div>
+        <div id="photo2" class="contain"><%= image_tag @event.user.contact_address1 %></div>
+        <div id="photo3" class="contain"><%= image_tag @event.user.contact_address2 %></div>
+    <!--     <div id="photo4"><img src="wp-images/4.jpg"></div>
+        <div id="photo5"><img src="wp-images/5.jpg"></div> -->
+      </div>
+    </div>
+<% end %>

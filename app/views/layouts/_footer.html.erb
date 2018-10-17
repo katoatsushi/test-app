@@ -1,5 +1,18 @@
 <footer>
+	<div class="footer-box">
   <p>
     さーくるネット　2018
   </p>
+
+  <% if user_signed_in? %>
+   <%= link_to "使い方" %>
+  <% else %>
+　　<%= link_to "使い方" %>
+  <% end %>
+
+  <%= link_to "ご利用規約" %>
+  <%= link_to "プライバシーポリシー" %>
+
+ <!--  <%= link_to "Twitterはこちらから", 'https://twitter.com/67DVb4UItWSi7EU'%> -->
+</div>
 </footer>

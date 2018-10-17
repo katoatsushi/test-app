@@ -1,0 +1,60 @@
+<div class="row">
+  <!-- <span class="header-title"> -->
+  <h id="header-title">
+    <%= link_to "さーくるネット", root_path, method: :get %>
+  </h>
+  <% if user_signed_in? %>
+    <input type="checkbox" id="navTgl">
+      <label for="navTgl" class="open">≡</label>
+      <label for="navTgl" class="close"></label>
+      <nav class="menu">
+        <p>メニュー</p>
+        <ul> 
+          <li><%= link_to "ホーム", root_path,method: :get %>
+          </li>
+          <li><%= link_to "マイページ", user_path(current_user.id),method: :get %>
+          </li>
+          <li> <%= link_to "投稿する", new_event_path, method: :get %>
+          </li>
+          <li><%= link_to "編集する",edit_user_registration_path, method: :get %>
+          </li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li><%= link_to "使い方", how_to_use_for_user_path, method: :get %>
+          </li>
+        </ul>
+      </nav>
+  <% elsif customer_signed_in? %>
+      <input type="checkbox" id="navTgl">
+        <label for="navTgl" class="open">≡</label>
+        <label for="navTgl" class="close"></label>
+        <nav class="menu">
+          <p>メニュー</p>
+          <ul>
+            <li><%= link_to "ホーム", root_path,method: :get %>
+            </li>
+            <li><%= link_to "マイページ", customer_path(current_customer.id), method: :get %>
+            </li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+            <li><%= link_to "使い方", how_to_use_for_customer_path, method: :get %></li>
+          </ul>
+        </nav>
+  <% else %>
+    <span class="header_first_menu">
+      <%= link_to "サークルの方はこちら", user_register_or_session_path,method: :get %>
+      <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
+      <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
+    </span>
+  <% end %>
+      <!-- 検索機能実装 -->
+    <dl class="searchbox">
+      <%= search_form_for @search, url: search_event_path do |f| %>
+        <dt><%= f.text_field :eventname_or_where_cont ,placeholder: 'イベント名または場所で検索...' %></dt>
+          <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+      <% end %>
+    </dl>
+    <!-- ここまで -->
+</div>
+
+

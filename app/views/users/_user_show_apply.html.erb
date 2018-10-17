@@ -1,0 +1,17 @@
+<!-- ログインしているユーザー以外が見ることができる -->
+<!-- 画面下の申し込みフォーム・モーダル -->
+<% if !user_signed_in? %>
+	<section class="myModal">
+	  <input id="myModal_open" type="radio" name="myModal_switch" />
+	  	<label for="myModal_open" class="open_button">申し込む</label>
+	  <input id="myModal_close-overlay" type="radio" name="myModal_switch" />
+	  	<label for="myModal_close-overlay">オーバーレイで閉じる</label>
+	  <input id="myModal_close-button" type="radio" name="myModal_switch" />
+	  	<label for="myModal_close-button"></label>
+	  <div class="myModal_popUp">
+	  <div class="myModal_popUp-content">
+	    <p>こちらから申し込みを行ってください。</p><%= image_tag @event.user.contact_address1 %>
+	  </div>
+	 </div>
+	</section>
+<% end %>

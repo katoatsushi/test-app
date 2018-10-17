@@ -14,6 +14,3 @@
     border: solid 2px #d27d00;/*線色*/
 }
 
-.clip_btn:active {/*押したとき*/
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-}

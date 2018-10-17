@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   registrations: 'customer/registrations'
 }
   get 'clips/create'
-
   get 'clips/destroy'
 
  # devise_for :users
@@ -21,13 +20,10 @@ Rails.application.routes.draw do
   get 'search_event', to: 'events#search'
   resources :users, only: [:show ,:edit, :update]
   resources :customers, only: [:show]
-  # get 'user/:id'  =>  'users#index'	
+
 
   root 'events#index'
-  # get 'search', to: 'students#search'
-
-  # get 'user/:id'  =>  'users#show'
-  # プロフィール詳細追加用
+ 
 
   # 使い方のページ
   get 'how_to_use_for_user', to: 'users#user_how_to_use'

@@ -3,15 +3,33 @@
  @import "bootstrap-sprocket";
  @import "font-awesome";
 
+header{
+  margin:0;
+  padding:0;
+}
+
+.header_first_menu{
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+/*〇〇さんログイン中のクラス*/
+.header_loged_in_user{
+  position: absolute;
+  font-size:24px;
+  padding :10px 30px 0px 0px;
+  top:0;
+  right:0;
+  
+}
 .header-container{
+position: relative;
 padding: 10px 20px;
 margin:0;
-/*width:960px;*/
 border-bottom: solid 4px;
 border-top:solid 10px;
 border-color: #FF8C00;
-/*text-align: center;*/
-/*position:relative;*/
 }
 .header-title {
     margin: 10px 10px 10px 10px;

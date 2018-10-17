@@ -8,18 +8,19 @@ label.open,
 label.close {
   cursor: pointer;
   position: fixed;
-  top: 10px;
-  left: 0;
+  bottom: 25px;
+  left: 25px;
 }
   
 .open {
   z-index: 2;
-  width: 65px;
-  height: 65px;
+  width: 85px;
+  height: 85px;
   color: white;
-  background-color: lightSeaGreen;
-  font-size: 3em;
-  line-height: 65px;
+  border-radius: 40px;/*角の丸み*/
+  background-color: #0000FF;
+  font-size: 4em;
+  line-height: 78px;
   text-align: center;
   -webkit-transition: background-color .6s, -webkit-transform .6s;
   transition: background-color .6s, transform .6s;

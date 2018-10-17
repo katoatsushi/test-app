@@ -1,91 +1,38 @@
 <header>
   <div class="container">
-    <div class="header-container">
       <% if user_signed_in? %>
       <!-- ログインしてるユーザーによって背景色の分岐 -->
           <% if current_user.clubtype == '1' %>
-            <div class="header" style = 'background-color: #75A9FF;'></div>
+            <div class="header-container" style = 'background-color: #75A9FF;'>
+              <div class="header_loged_in_user"><%= current_user.clubname %>さんログイン中</div>
+              <%= render 'layouts/header_main'  %></div>
           <% elsif current_user.clubtype == '2' %>
-            <div class="header" style = 'background-color: #78FF94;'></div>
+            <div class="header-container" style = 'background-color: #78FF94;'>
+              <div class="header_loged_in_user"><%= current_user.clubname %>さんログイン中</div>
+              <%= render 'layouts/header_main'  %>
+            </div>
           <% elsif current_user.clubtype == '3'  %>
-            <div class="header" style = 'background-color: #FF82B2;'></div>
+            <div class="header-container" style = 'background-color: #FF82B2;'>
+              <div class="header_loged_in_user"><%= current_user.clubname %>さんログイン中</div>
+              <%= render 'layouts/header_main'  %>
+            </div>
           <% elsif current_user.clubtype == '4' %>
-            <div class="header" style = 'background-color: #CCCCCC;'></div>
+            <div class="header-container" style = 'background-color: #CCCCCC;'>
+             <div class="header_loged_in_user"><%= current_user.clubname %>さんログイン中</div>
+              <%= render 'layouts/header_main'  %>
+            </div>
           <% end %>
+      <% elsif customer_signed_in? %>
+        <div class="header-container" style = 'background-color: white;'>
+          <div class="header_loged_in_user"><%= current_customer.name %>さんログイン中</div>
+          <%= render 'layouts/header_main'  %>
+        </div>
       <% else %>
-        <div class="header" style = 'background-color: white;'></div>
+        <div class="header-container" style = 'background-color: white;'>
+          <div class="header_loged_in_user"></div>
+          <%= render 'layouts/header_main'  %>
+        </div>
       <% end %>
-
-      <div class="row">
-      <!-- <span class="header-title"> -->
-        <% if user_signed_in? %>
-          <input type="checkbox" id="navTgl">
-            <label for="navTgl" class="open">≡</label>
-            <label for="navTgl" class="close"></label>
-          <nav class="menu">
-            <p>メニュー</p>
-            <ul> 
-              <li><%= link_to "ホーム", root_path,method: :get %>
-              </li>
-              <li><%= link_to "マイページ", user_path(current_user.id),method: :get %>
-              </li>
-              <li> <%= link_to "投稿する", new_event_path, method: :get %>
-              </li>
-              <li><%= link_to "編集する",edit_user_registration_path, method: :get %>
-              </li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-              <li><%= link_to "使い方", how_to_use_for_user_path, method: :get %></li>
-            </ul>
-          </nav>
-        <% elsif customer_signed_in? %>
-          <input type="checkbox" id="navTgl">
-            <label for="navTgl" class="open">≡</label>
-            <label for="navTgl" class="close"></label>
-          <nav class="menu">
-            <p>メニュー</p>
-            <ul>
-              <li><%= link_to "ホーム", root_path,method: :get %>
-              </li>
-              <li><%= link_to "マイページ", customer_path(current_customer.id), method: :get %>
-              </li>
-              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-              </li>
-              <li><%= link_to "使い方", how_to_use_for_customer_path, method: :get %></li>
-            </ul>
-          </nav>
-        <% else %>
-            <%= link_to "サークルの方はこちら", user_register_or_session_path,method: :get %>
-            <%= link_to "新規登録", new_customer_registration_path, class: 'post' %>
-            <%= link_to "ログイン", new_customer_session_path, class: 'post' %>
-        <% end %>
-
-          <p id="header-title">
-                <%= link_to "さーくるネット", root_path, method: :get %>
-          </p>
-
-      </div>
-
-
-      <!-- 検索機能実装 -->
-      <dl class="searchbox">
-        <%= search_form_for @search, url: search_event_path do |f| %>
-          <dt><%= f.text_field :eventname_or_where_cont ,placeholder: 'イベント名または場所で検索...' %></dt>
-          <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-        <% end %>
-      </dl>
-      <!-- ここまで -->
-
-      <!--   <div class="header-login-username">
-        <% if user_signed_in? %>
-                <span>[<%=current_user.clubname %>]さんログイン中</span>
-        <% elsif customer_signed_in? %>
-                <span>[<%=current_customer.name %>]さんログイン中</span>
-        <% else %>
-        <span> ゲストさん</span>
-        <% end %>
-      </div> -->
-    </div>
   </div>
 </header>
 

@@ -1,8 +1,17 @@
+
+<!--<% @events_in_3days.each do |event_souse| %>
+	<% clip = Clip.find_by(event_id: event_souse.id) %>
+	<p><%= clip.event_id %></p>
+<% end %>
+-->
+
+
 <div class="contents row">
 	<% if customer_signed_in? %>
 		<p><%= current_customer.name %>さんのホーム
 		</p>
 		<h2>保存したイベント</h2>
+
 		<% @clips.each do |clip| %>
 		<% event = Event.find(clip.event.id) %>
 		　<!-- 自分の保存したイベント一覧 -->

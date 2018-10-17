@@ -5,4 +5,10 @@ class Clip < ApplicationRecord
     belongs_to :customer
     belongs_to :event
 
+
+    #特定のユーザーが特定のfoodをすでにいいねしているかを判別するメソッド
+	def liked? (cliop_customer_id, clip_event_id)
+	 clips.where(customer_id: clips_customer_id, event_id: clips_event_id).exists?
+	end
+
 end

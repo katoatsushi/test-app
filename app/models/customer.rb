@@ -11,16 +11,16 @@ class Customer < ApplicationRecord
     self.events.fetch_events_from_today_until(datetime)
   end
   # 以下、デバイスにストロングパラメータの追加
-		class Customer::ParameterSanitizer < Devise::ParameterSanitizer
+		# class Customer::ParameterSanitizer < Devise::ParameterSanitizer
 		  
-		  def initialize(*)
-		    super
-		    permit(:sign_up, keys: [:name, :email, :introduce])
-		  end
-		  #  def sign_in
-		  #   default_params.permit(:name, :email,:password)
-		  # end
+		#   def initialize(*)
+		#     super
+		#     permit(:sign_up, keys: [:name, :email, :introduce])
+		#   end
+		#   #  def sign_in
+		#   #   default_params.permit(:name, :email,:password)
+		#   # end
 
-		end
+		# end
 
 end
