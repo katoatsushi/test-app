@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
-  before_action :move_to_index, except: :index
+  # before_action :move_to_index, except: :index
 
   def index
    @events = Event.all.order("id DESC")
    # ３日以内に開催されるイベント
    @events_in_3_days = Event.where(when: (DateTime.now)..(DateTime.now+3.days))
-   
+   # @clip =  Clip.where(customer_id: current_customer.id, event_id: @event_id)
    # # クリックされたイベントとそうでないイベントを区別する
    # @event = Event.find(params[:id])
    # @clip = Clip.find_by(event_id:  @event.id)

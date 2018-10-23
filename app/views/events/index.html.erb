@@ -1,58 +1,65 @@
 <% @events.each do |event| %>
 	<div class="col-xs-12">
-     <div class = "event-box">
-				<div class="event-box-img" >
-					<%= image_tag event.picture %>
-					<%= image_tag event.picture2 %>
-				</div>
+    <div class = "event-box">
+		<div class="event-box-img" >
+			<%= image_tag event.picture %>
+			<%= image_tag event.picture2 %>
+		</div>
 
-			<div class="event-details">	
-				<div class="event-box-eventname">
-					「
-					<h id="event-eventname">
-					<span class="marker_eventname">		
-						<%= link_to event.eventname, event_path(event.id), method: :get  %>
-				    </span>
-				    </h>
-				    」
-				</div>
-				<div class="event-box-1">
-					<span class="event-box-title"><span class="marker_yellow_hoso">参加費:</span>&emsp;¥<%= event.cost %>
-					</span>
-					<span class="event-box-title"><span class="marker_yellow_hoso">時間:</span>&emsp;<%= event.when.strftime('%m月%d日 %H：%M') %> 〜
-					</span>　　　　　
-					<span class="event-box-title"><span class="marker_yellow_hoso">場所:</span>&emsp;<%= event.where %>
-					</span>
-	　　　　　　　</div>
-
-				<div class="event-box-2">
-					<h id="event-clubname">
-					<span class="marker_yellow_hoso"><%= link_to "#{event.user.clubname}", user_path(event.user.id), method: :get %>さんから、ひと言！&emsp;
-					</span>
+		<div class="event-details">	
+			<div class="event-box-eventname">
+				<h id="event-eventname">
+				<span class="marker_eventname">		
+					<%= link_to event.eventname, event_path(event.id), method: :get  %>
+				</span>
 				</h>
-						<% if event.user.clubtype == '1' %>
-							<div class="clubtype-tag1" >部活</div>
-						<% elsif event.user.clubtype == '2' %>
-							<div class="clubtype-tag2">サークル</div>
-						<% elsif event.user.clubtype == '3' %>
-							<div class="clubtype-tag3">学生団体</div>
-						<% elsif event.user.clubtype == '4' %>
-							<div class="clubtype-tag4">その他</div>
-						<% end %>	
-				</div>
-				<div class="event-box-text"><%= event.text %>
-				</div>
-
-					<% if customer_signed_in? %>
-			              	<span class="clip_btn"><%= link_to "このイベントをクリップ", add_event_path(event), method: :post %>
-						  	</span>
-					<% end %>
-					<% if user_signed_in? && event.user_id == current_user.id %>
-						<%= link_to "削除", event, method: :delete , data: { confirm: '本当に削除しますか？' } %>
-						<!--   path名はevent,メソッドはdelete -->
-						<%= link_to "編集", edit_event_path(event.id) %>
-					<% end %>
 			</div>
+			<div class="event-box-1">
+				<span class="event-box-title"><span class="marker_yellow_hoso">参加費:</span>&emsp;¥<%= event.cost %>
+				</span>
+				<span class="event-box-title"><span class="marker_yellow_hoso">時間:</span>&emsp;<%= event.when.strftime('%m月%d日 %H：%M') %> 〜
+				</span>　　　　　
+				<span class="event-box-title"><span class="marker_yellow_hoso">場所:</span>&emsp;<%= event.where %>
+				</span>
+	　　　　　</div>
+
+			<div class="event-box-2">
+				<h id="event-clubname">
+				<span class="marker_yellow_hoso"><%= link_to "#{event.user.clubname}", user_path(event.user.id), method: :get %>さんから、ひと言！&emsp;
+				</span>
+				</h>
+				<% if event.user.clubtype == '1' %>
+					<div class="clubtype-tag1" >部活</div>
+				<% elsif event.user.clubtype == '2' %>
+					<div class="clubtype-tag2">サークル</div>
+				<% elsif event.user.clubtype == '3' %>
+					<div class="clubtype-tag3">学生団体</div>
+				<% elsif event.user.clubtype == '4' %>
+					<div class="clubtype-tag4">その他</div>
+				<% end %>	
+			</div>
+
+			<div class="event-box-text"><%= event.text %>
+			</div>
+
+            <% if  customer_signed_in? %>
+			<!-- link_to Ver -->
+				<% if event.liked?(current_customer.id) %>
+					<div class = "cliped_btn" id = "cliped_btn"><%= link_to 'いいねを消す', clip_path(customer_id: current_customer.id, id: event.id) ,method: :delete%>	
+					</div>
+
+				<% else %>
+				<div class = "clip_btn" id = "clip_btn">
+					<%= link_to 'いいね',add_event_path(customer_id: current_customer.id, id: event.id), method: :post%>
+				<% end %>
+			<% end %>
+
+            <% if user_signed_in? && event.user_id == current_user.id %>
+				<%= link_to "削除", event, method: :delete , data: { confirm: '本当に削除しますか？' } %>
+				<%= link_to "編集", edit_event_path(event.id) %>
+			<% end %>
+
+		</div>
     </div>
     </div>
 <% end %>

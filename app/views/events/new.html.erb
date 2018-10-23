@@ -1,32 +1,48 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
     
     <%= form_for(@event) do |f| %>
     <!--@eventの後にURLを指定しなかったら自動的にPOSTに飛ぶ-->
     <strong>イベント名</strong>
-      <%= f.text_field :eventname %>
-　　 <br><strong>開催日時</strong><span>＊イベントが始まる時間のみ入力してください</span>
-      <%= f.text_field :when %>
+    <div class="msr_text_04">
+      <%= f.text_field :eventname ,placeholder:"例）新入生歓迎会"%>
+    
+    </div>
+　　 <br><strong>開催日時</strong>
+
+    <span>＊イベントが始まる時間のみ入力してください</span><br>
+    <span style="color:#F00;"><%=DateTime.now.strftime("%Y/%m/%d "+"13:00")%></span>のように記入してください
+     <div class="msr_text_04">
+      <%= f.text_field :when ,placeholder: "例)"+DateTime.now.strftime("%Y/%m/%d "+"13:00") %>
+    </div>
 　　 <br><strong>開催場所</strong>
       <%= f.label :開催場所 %>
-      <%= f.text_field :where %>
+       <div class="msr_text_04">
+      <%= f.text_field :where ,placeholder: "例) 栄駅　２番出口出てすぐ"%>
+    </div>
     <br><strong>参加費</strong>
-    <span>＊参加費が無料の場合は０と、未定の場合は未定と入力してください。</span>
-      <%= f.text_field :cost %>
+    <span>＊参加費が無料の場合は０と、未定の場合は未定と入力してください。</span> <div class="msr_text_04">
+      <%= f.text_field :cost ,placeholder: "3000"%></div>
     <br><strong>どんなイベントですか？</strong>
+
       <%= f.label :ひと言 %>
       <div class="event_text_create">
-        <%= f.text_area :text %> 
+          <div class="msr_textarea_04">
+        <%= f.text_area :text ,placeholder: "例）#{current_user.clubname}の新入生歓迎会は毎年この時期に行っており、６０人から多いい時は１００人ほどの新入生やメンバーが集まります！みんな元気で、先輩後輩関係なくみんなで盛り上がれる人気イベントです！人数が多くなってしまうと締め切ることもありうるのでお早めにどうぞ！"%> 
+      </div>
       </div>
 
         <br><strong>イメージ画像１</strong>
+        <p>去年のイベントの集合写真などを載せて見ましょう！</p>
       <%= f.file_field :picture %>
+       
         <strong>イメージ画像2</strong>
       <%= f.file_field :picture2 %>
 
-
-      <%= f.submit "投稿する", class: "btn btn-primary" %>
+  <p class="msr_sendbtn_04">
+      <%= f.submit "投稿する", class: "btn btn-primary" %></p>
     <% end %>
-  </div>
 </div>
+
+
 

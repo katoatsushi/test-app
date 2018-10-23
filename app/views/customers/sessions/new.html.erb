@@ -1,26 +1,37 @@
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="authform">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+<h3 id="authform">ログイン</h3>
+ <table>
+  <div class="form-group">
+      <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <td><%= f.email_field :email, class: 'form-control' %></td>
+      </tr>
+  </div>
+  <div class="form-group">
+      <tr>
+      <th><%= f.label :パスワード %></th>
+      <td><%= f.password_field :password, class: 'form-control' %></td>
+      </tr>
   </div>
 
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
+</table>
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :パスワードを覚えておく %>
     </div>
-  <% end -%>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<%= render "customers/shared/links" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= render "customers/shared/links" %>
+    </div>
+  </div>
+
+</div>

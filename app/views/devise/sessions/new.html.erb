@@ -1,26 +1,40 @@
-<h1>こちらはサークル・部活・学生団体のログインページです</h1>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, :placeholder =>"メールアドレスを入力してください", autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, :placeholder =>"パスワードを入力してください", autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :パスワードを記憶する %>
+<div class="authform">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+  <h3 id="authform">ログイン</h3>
+  <h1 id="authform">  ※こちらはサークル・部活・学生団体のログインページです
+  </h1>
+  <table>
+    <div class="form-group">
+        <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <td><%= f.email_field :email, class: 'form-control' %></td>
+        </tr>
     </div>
-  <% end -%>
+    <div class="form-group">
+        <tr>
+        <th><%= f.label :パスワード %></th>
+        <td><%= f.password_field :password, class: 'form-control' %></td>
+        </tr>
+    </div>
+
+  </table>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :パスワードを覚えておく %>
+      </div>
+  <% end %>
 
   <div class="actions">
-    <%= f.submit "ログインする" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+</div>
+

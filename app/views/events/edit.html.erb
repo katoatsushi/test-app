@@ -1,25 +1,47 @@
-
 <h1>ここでイベント情報を編集できます。</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    
     <%= form_for(@event) do |f| %>
-      <%= f.label :eventname %>
+    <!--@eventの後にURLを指定しなかったら自動的にPOSTに飛ぶ-->
+    <strong>イベント名</strong>
+    <div class="msr_text_04">
       <%= f.text_field :eventname %>
+    
+    </div>
+　　 <br><strong>開催日時</strong>
 
-      <%= f.label :開催日時 %>
-      <%= f.text_field :when, :class => 'datepicker' %>
-
+    <span>＊イベントが始まる時間のみ入力してください</span>
+     <div class="msr_text_04">
+      <%= f.text_field :when %>
+    </div>
+　　 <br><strong>開催場所</strong>
       <%= f.label :開催場所 %>
+       <div class="msr_text_04">
       <%= f.text_field :where %>
-
-      <%= f.label :参加費　%>
-      <%= f.text_field :cost %>
+    </div>
+    <br><strong>参加費</strong>
+    <span>＊参加費が無料の場合は０と、未定の場合は未定と入力してください。</span> <div class="msr_text_04">
+      <%= f.text_field :cost %></div>
+    <br><strong>どんなイベントですか？</strong>
 
       <%= f.label :ひと言 %>
-      <%= f.text_field :text %>
+      <div class="event_text_create">
+          <div class="msr_textarea_04">
+        <%= f.text_area :text %> 
+      </div>
+      </div>
 
-      <%= f.submit "再投稿する", class: "btn btn-primary" %>
+        <br><strong>イメージ画像１</strong>
+        
+      <%= f.file_field :picture %>
+       
+        <strong>イメージ画像2</strong>
+      <%= f.file_field :picture2 %>
+
+  <p class="msr_sendbtn_04">
+      <%= f.submit "再投稿する", class: "btn btn-primary" %></p>
     <% end %>
   </div>
 </div>

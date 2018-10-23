@@ -17,21 +17,20 @@
 {background-color: #FAFAD2;
 }
 
-.event-box-img{
+.event-shows-box-img{
 
   padding: 5 5 10 5px;
   text-align: center;
-  background-color:#FFFFEE;
 }
 
-.event-details
+.event-shows_details
 {
     margin: 0px;
     padding:0px;
 }
 
 
-.event-box-eventname
+.event-shows-box-eventname
 {
     padding: 10px 10px 10px 20px;
     margin:12px 12px 12px 20px;
@@ -39,21 +38,21 @@
     overflow: scroll;
     border-top-style: solid;
     border-color: grey;
-    background-color:#FFFFEE;
+    
 }
 
 
-.event-box-1{
+.event-shows-box-1{
     margin:18px;
     padding: 0px 0px;
     font-size:27px;
     color: grey;
     border-top-style: solid;
     border-color: grey;
-    background-color:#FFFFEE;
+    
 }
 
-.event-box-title{
+.event-shows-box-title{
     margin:1px 20px;
     padding: 0.8px 10px;
     font-size:26px;
@@ -62,7 +61,7 @@
     display: block;
 }
 p.event-box-title{background: linear-gradient(transparent 60%, #ffff66 60%);}
-.event-box-2{
+.event-shows-box-2{
     margin:12px;
     padding:0px 20px;
     font-size:27px;
@@ -81,12 +80,11 @@ font-weight:650;
   }
 
 
-.event-box-text{
+.event-shows-box-text{
     margin:12px 30px;
     padding:3px;
     font-size:14px;
     color: grey;
-    background-color:#FFFFEE;
 }
 
 .marker_yellow_hoso {

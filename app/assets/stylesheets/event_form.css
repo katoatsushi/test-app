@@ -1,0 +1,296 @@
+/*--------------------------------------
+テキスト
+---------------------------------------*/
+
+
+.msr_text_04 {
+  padding-bottom: 20px;
+  width: 460px;
+}
+.msr_text_04 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_text_04 input[type=text] {
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #000000;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
+
+/*--------------------------------------
+ラジオボタン
+---------------------------------------*/
+
+.msr_radio_04 {
+  padding-bottom: 20px;
+}
+.msr_radio_04 p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_radio_04 input[type=radio] {
+  display: none;
+  margin: 0;
+}
+.msr_radio_04 input[type=radio] + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.5px;
+  margin-right: 12px;
+  padding: 0 0 0 30px;
+  position: relative;
+}
+.msr_radio_04 input[type=radio] + label::before {
+  border: 3px solid #000000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "";
+  display: block;
+  margin-top: -9px;
+  position: absolute;
+  left: 0;
+  top: -3px;
+  height: 24px;
+  width: 24px;
+}
+.msr_radio_04 input[type=radio]:checked + label::after {
+  background: #000000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "";
+  display: block;
+  margin-top: -4px;
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: 12px;
+  width: 12px;
+}
+
+/*--------------------------------------
+チェックボックス
+---------------------------------------*/
+
+.msr_chack_04 {
+  padding-bottom: 20px;
+}
+.msr_chack_04 p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_chack_04 input[type=checkbox] {
+  display: none;
+  margin: 0;
+}
+.msr_chack_04 input[type=checkbox] + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.5px;
+  margin-right: 12px;
+  padding: 0 0 0 30px;
+  position: relative;
+}
+.msr_chack_04 input[type=checkbox] + label::before {
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "";
+  display: block;
+  margin-top: -9px;
+  position: absolute;
+  left: 0;
+  top: -3px;
+  height: 24px;
+  width: 24px;
+}
+.msr_chack_04 input[type=checkbox]:checked + label::after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+}
+.msr_chack_04 input[type=checkbox]:checked + label::after {
+  border-bottom: 3px solid #000000;
+  border-left: 3px solid #000000;
+  left: 6px;
+  margin-top: -8px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  height: 10px;
+  width: 12px;
+}
+
+/*--------------------------------------
+プルダウン
+---------------------------------------*/
+
+.msr_pulldown_04 {
+  padding-bottom: 20px;
+  position: relative;
+  width: 230px;
+}
+.msr_pulldown_04 p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_pulldown_04 select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url(/stylerecipe_img/msr04_pulldown_btn01.png) no-repeat right;
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  padding: 5px 10px;
+  height: 40px;
+  width: 230px;
+}
+
+/*--------------------------------------
+ファイル選択
+---------------------------------------*/
+
+.msr_file_04 {
+  padding-bottom: 20px;
+  width: 460px;
+}
+.msr_file_04>p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_filebox_04 input[type=file] {
+  display: none;
+}
+.msr_filebox_04 label {
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  padding: 5px 10px;
+  position: relative;
+  height: 40px;
+  width: 460px;
+}
+.msr_filebox_04 label:before {
+  background: #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "Browse...";
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  width: 99px;
+}
+
+/*--------------------------------------
+テキストエリア
+---------------------------------------*/
+
+.msr_textarea_04 {
+  padding-bottom: 10px;
+  width: 460px;
+}
+.msr_textarea_04 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_textarea_04 textarea {
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #000000;
+  font-size: 13px;
+  padding: 10px;
+  height: 210px;
+  width: 460px;
+}
+
+/*--------------------------------------
+送信ボタン
+---------------------------------------*/
+.msr_sendbtn_04 {
+  margin:0 0 10px;
+  position: relative;
+  height: 50px;
+  width: 150px;
+}
+.msr_sendbtn_04 input[type=submit] {
+  background: #000000;
+  background-position: 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  height: 50px;
+  width: 150px;
+}
+.msr_sendbtn_04:before {
+  border: 6px solid transparent;
+  border-left: 6px solid #FFFFFF;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  content: "";
+  display: inline-block;
+  height: 12px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  vertical-align: middle;
+  width: 6px;
+  z-index: 10;
+}
+.msr_sendbtn_04 input[type=submit]:hover {
+  opacity: 0.6;
+}
+.msr_sendbtn_04_disabled input[type=submit]{
+  background: #FFFFFF;
+  border: 5px solid #DDDDDD;
+  color: #DDDDDD;
+  cursor: default;
+}
+.msr_sendbtn_04_disabled:before {
+  border-left: 6px solid #DDDDDD;
+  content: "";
+}
+.msr_sendbtn_04_disabled input[type=submit]:hover {
+  opacity: 1;
+}

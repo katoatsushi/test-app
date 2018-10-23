@@ -1,78 +1,70 @@
-<h2>編集ページ <%= resource_name.to_s.humanize %></h2> 
-<h2>このページは<%= @user.clubname %>しか編集できません。</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="authform">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <h3 id="authform"><%= current_user.clubname %>さんのマイページ</h3>
+    <table>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <tr>
+        <th><%= f.label :トプ画 %></th>
+        <td> <%= f.file_field :contact_address1%></td>
+      </tr>
+    </div>
+    <div class="form-group">
+      <tr>
+        <th><%= f.label :連絡先のQRコード %></th>
+        <td> <%= f.file_field :contact_address1%></td>
+      </tr>
+    </div>
+    <div class="form-group">
+      <tr>
+        <th><%= f.label :活動内容を教えてください %></th>
+        <td><%= f.text_area :what_we_do,class: 'form-control' %>
+        </td>
+      </tr>
+    </div>
 
+    <div class="form-group">
+      <tr>
+      <th><%= f.label :主にどこで活動していますか？%></th>
+      <td><%= f.text_area :where_we_do, class: 'form-control' %></td>
+      </tr>
+    </div>
+    <div class="form-group">
+      <tr>
+      <th><%= f.label :どのくらいの頻度で活動していますか？%></th>
+      <td><%= f.text_area :how_often_we_do, class: 'form-control' %></td>
+      </tr>
+    </div>
 
-<!-- 編集時にemailを入力しなくてもアップデートできるようにしたい -->
-<!--   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-   -->
-   <!-- 終わり -->
-<!-- Userに編集でトプ画を追加してもらう -->
-  <div class="field">
-     <strong><%=@user.clubname%>のイメージ画像を選んでください。</strong>
-    <%= f.label :トプ画 %>
-    <%= f.file_field :profile_img %>
-  </div>
-<!-- トプ画ここまで -->
-<strong>活動内容を教えてください</strong><br>
-<%= f.text_area :what_we_do %><br>
-<strong>主に、どこで活動していますか？</strong><br>
-<%= f.text_area :where_we_do%><br>
-<strong>どのくらいの頻度で活動していますか？</strong><br>
-<%= f.text_area :how_often_we_do%><br>
-<strong><%= @user.clubname %>の雰囲気はどんな感じですか？</strong><br>
-<%= f.text_area :atmosphere%><br>
-<strong>年間のイベントを教えてください</strong><br>
-<%= f.text_area :annual_events%><br>
-<p>以下はイベントに参加したい方々が連絡を取れるように<%= @user.clubname %>さんと連絡を取れるようにするためのものです</p>
-<strong>連絡先(QRコード)を教えてください</strong>
-<%= f.file_field :contact_address1%>
-<strong>連絡先(QRコード)を教えてください</strong>
-<%= f.file_field :contact_address2%>
-
- <div class="field">
-    <%= f.label :メッセージ %><br />
-    <p>新入生に向けてメッセージを書いて見ましょう！(書かれたメッセージは<%=@user.clubname%>のホームページに反映されます)</p>
-    <%= f.text_area :text, :placeholder => "例：
+    <div class="form-group">
+      <tr>
+      <th><%= @user.clubname %><%= f.label :の雰囲気はどんな感じですか？%></th>
+      <td><%= f.text_area :atmosphere, class: 'form-control' %></td>
+      </tr>
+    </div>
+    <div class="form-group">
+      <tr>
+      <th><%= f.label :年間のイベントを教えてください%></th>
+      <td><%= f.text_area :annual_events, class: 'form-control' %></td>
+      </tr>
+    </div>
+    <div class="form-group">
+      <tr>
+      <th><%= f.label :メッセージ%></th>
+      <td><%= f.text_area :text, :placeholder => "例：
     みなさん、こんにちは！#{@user.clubname}です！#{@user.clubname}は創立５年のサークルで今や数々の大学から300人ものメンバーが切っていただけるようになりました！僕たちは最高の仲間たちを楽しい思い出作りをモットーに活動しています！！を大学生活４年間を#{@user.clubname}で過ごしてみませんか？
     元気な１年生たち集まれ〜
 
-    ＊あくまで例です"  %>
-  </div>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    ＊あくまで例です" , class: 'form-control' %></td>
+      </tr>
+    </div>
+
+    </table>
+     <p><%= f.submit '新規登録', :class => 'button right' %></p>
   <% end %>
-
-<!--   <div class="field">
-    <%= f.label :パスワード %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :パスワード確認用 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
- -->
-  <div class="actions">
-    <%= f.submit "アップデート" %>
-  </div>
-<% end %>
-
-<h3>編集をやめますか？</h3>
-
- <%= button_to "編集をやめる", registration_path(resource_name), data: { confirm: "よろしいですか？" }, method: :delete %>
-
-<%= link_to "戻る", :back %>
+</div>

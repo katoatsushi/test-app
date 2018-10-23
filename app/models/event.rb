@@ -3,16 +3,18 @@ class Event < ApplicationRecord
   mount_uploader :picture2, PictureUploader
 	belongs_to :user
 	has_many :clips
-  # has_many :users, through: :clips
+  has_many :customers, through: :clips
   has_many :users
-  
-  # has_many :customers, through: :clips
   #validate  :picture_size
+    #特定のユーザーが特定のfoodをすでにいいねしているかを判別するメソッド
+  def liked? (clips_customer_id)
+   Clip.where(customer_id: clips_customer_id, event_id: self.id).exists?
+  end
 
 
   # 今日以降、X月X日以前のイベントをすべて取得する
   def self.fetch_events_from_today_until(datetime)
-   Event.where("when BETWEEN ? AND ?", DateTime.now, datetime)
+   self.where("when BETWEEN ? AND ?", DateTime.now, datetime)
   end
   # 以内のイベント
   scope :in3days, -> from, to {
@@ -34,3 +36,5 @@ class Event < ApplicationRecord
       end
     end
 end
+
+

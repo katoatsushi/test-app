@@ -1,6 +1,5 @@
 <!-- ユーザーそれぞれの活動詳細、説明 -->
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
-	<!--<%= image_tag current_user.profile_img%>-->
 	<div class="tabs">
 		<input id="all" type="radio" name="tab_item" checked>
 			<label class="tab_item" for="all">活動について</label>
@@ -22,7 +21,6 @@
 			</div>
 	</div>
 <% else %>
-	<!--<%= image_tag @event.user.profile_img%>-->
 	<div class="tabs">
 		<input id="all" type="radio" name="tab_item" checked>
 			<label class="tab_item" for="all">活動について</label>

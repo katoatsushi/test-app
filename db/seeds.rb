@@ -29,3 +29,7 @@ Event.create(:eventname =>'Event_id = 7 user_by_2     3/3', :when => DateTime.no
 Event.create(:eventname =>'Event_id = 8 user_by_3    1/3', :when => DateTime.now+4.days,:where => '本山',:user_id => '3',:text => 'みんなで親睦を深めましょう！！')
 Event.create(:eventname =>'Event_id = 9 user_by_3   2/3', :when => DateTime.now+2.days,:where => '本山',:user_id => '3',:text => 'みんなで親睦を深めましょう！！')
 Event.create(:eventname =>'Event_id = 10 user_by_3  3/3', :when => DateTime.now+2.days,:where => '本山',:user_id => '3',:text => 'みんなで親睦を深めましょう！！')
+
+Clip.create(:event_id => '3', :customer_id => '1')
+Clip.create(:event_id => '3', :customer_id => '2')
+Clip.create(:event_id => '2', :customer_id => '1')

@@ -4,8 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :clips, dependent: :destroy
-
-  # has_many :events, through: :clips
+  has_many :events, through: :clips
 
   def fetch_events_from_today_until(datetime)
     self.events.fetch_events_from_today_until(datetime)

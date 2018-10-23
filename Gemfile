@@ -12,6 +12,7 @@ gem 'devise'
 gem 'data-confirm-modal'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bootstrap-datetimepicker-rails'
+gem 'devise-bootstrap-views'
 gem 'bootstrap', '~> 4.1.1'
 gem "font-awesome-rails"
 gem 'carrierwave'
@@ -29,7 +30,6 @@ gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'execjs'
-gem 'devise-bootstrap-views'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

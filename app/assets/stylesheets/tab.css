@@ -73,6 +73,10 @@ input[name="tab_item"] {
 background: linear-gradient(transparent 0%, #ffff66 0%);
 }
 
+#tab_contents{
+  font-size:10px;
+}
+
 /*ユーザーの連絡先（Qrコード）*/
 /*User/showのtabsの下*/
 /*https://syncer.jp/jquery-modal-window*/
