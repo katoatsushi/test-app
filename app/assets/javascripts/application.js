@@ -13,9 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-datetimepicker
-// = require data-confirm-modal
-//= require bootstrap-sprockets
 // = require bootstrap
 
 

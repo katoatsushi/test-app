@@ -1,6 +1,3 @@
-@import "bootstrap-sprocket";
-@import "bootstrap";
-
 .clubtype-tag1 {
     /*部活*/
     font-size:27px;
@@ -15,8 +12,8 @@
     font-weight: bold;
     border: solid 2px #d27d00;/*線色*/
 }
+/*サークル*/
 .clubtype-tag2 {
-    /*サークル*/
     font-size:27px;
     position: relative;
     display: inline-block;
@@ -29,8 +26,8 @@
     font-weight: bold;
     border: solid 2px #d27d00;/*線色*/
 }
+ /*学生団体*/
 .clubtype-tag3 {
-    /*学生団体*/
     font-size:27px;
     position: relative;
     display: inline-block;
@@ -43,10 +40,9 @@
     font-weight: bold;
     border: solid 2px #d27d00;/*線色*/
 }
+/*その他*/
 .clubtype-tag4 {
-    /*その他*/
     font-size:27px;
-    /*position: relative;*/
     display: inline-block;
     padding: 0.25em 0.5em;
     text-decoration: none;
@@ -57,8 +53,8 @@
     font-weight: bold;
     border: solid 2px #d27d00;/*線色*/
 }
+/*学生団体*/
 .some-box {
-    /*学生団体*/
     font-size:27px;
     position: relative;
     display: inline-block;

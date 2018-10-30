@@ -1,6 +1,3 @@
-@import "bootstrap-sprocket";
-@import "bootstrap";
-/*textカラムの入力画面用*/
 textarea {
 resize: both;
  width :300px;

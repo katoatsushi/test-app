@@ -13,6 +13,9 @@ User.create(:clubname => 'ユーザー2',:clubtype => '3', :email => '2@gmail.co
 User.create(:clubname => 'ユーザー3',:clubtype => '1', :email => '3@gmail.com', :password => 333333)
 User.create(:clubname => 'ユーザー4',:clubtype => '4' ,:email => '4@gmail.com', :password => 444444)
 
+
+#User.create(:clubname => 'テスト',:clubtype => '4' ,:email => 'test@gmail.com', :password => testcollege)
+
 Customer.create(:name => 'Customer1',:email => '1@gmail.com',:password => '111111')
 Customer.create(:name => 'Customer2',:email => '2@gmail.com',:password => '222222')
 Customer.create(:name => 'Customer3',:email => '3@gmail.com',:password => '333333')
@@ -33,3 +36,15 @@ Event.create(:eventname =>'Event_id = 10 user_by_3  3/3', :when => DateTime.now+
 Clip.create(:event_id => '3', :customer_id => '1')
 Clip.create(:event_id => '3', :customer_id => '2')
 Clip.create(:event_id => '2', :customer_id => '1')
+
+
+%W[A大 B大 C大 D大 E大 F大].each { |a| College.create(name: a) }
+
+
+CollegeUser.create(user_id: '2', college_id: '1')
+CollegeUser.create(user_id: '2', college_id: '2')
+CollegeUser.create(user_id: '2', college_id: '3')
+CollegeUser.create(user_id: '2', college_id: '4')
+CollegeUser.create(user_id: '1', college_id: '4')
+CollegeUser.create(user_id: '3', college_id: '4')
+CollegeUser.create(user_id: '4', college_id: '4')

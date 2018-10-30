@@ -1,12 +1,11 @@
- @import "devise-bootstrap-views";
- @import "bootstrap";
- @import "bootstrap-sprocket";
- @import "font-awesome";
-
 /*
  THESE ARE EXAMPLES YOU CAN MODIFY
  create your own classes
  to make views framework-neutral*/
+
+
+
+/* SCSSの文法あり*/
 .column {
   @extend .col-md-6;
   @extend .text-center;
@@ -55,11 +54,7 @@ section {
 .authform p{
   color:#FFFFCC;
   font-size:18px;
-/*  border:0;
-  padding:0;*/
-
 }
-
 
 .authform h1{
   color:#FF9900;

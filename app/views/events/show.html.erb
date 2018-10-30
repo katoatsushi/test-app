@@ -1,5 +1,5 @@
 <!-- <div class = "event-box"> -->
-<h2>&emsp;＊<%= link_to "#{@event.user.clubname}" ,user_path(@event.user.id), metho: :get %>さんのイベントです</h2>
+<div class="title">&emsp;・<%= link_to "#{@event.user.clubname}" ,user_path(@event.user.id), metho: :get %>さんのイベントです</div>
 <div class="event-shows-box-img" >
 	<%= image_tag @event.picture %>
 	<%= image_tag @event.picture2 %>
@@ -29,13 +29,13 @@
 	<div class="event-shows-box-text"><%= @event.text %>
 	</div>
 </div>
-
-<%if @event.user.clubtype == '1'%><!-- 部活 --><h2>＊<%= @event.user.clubname %>さんはこんな部活です</h2>
-<%elsif @event.user.clubtype == '2'%><!-- サークル --><h2>＊<%= @event.user.clubname %>さんはこんなサークルです</h2>
-<%elsif @event.user.clubtype == '3'%><!-- 学生団体 --><h2>＊<%= @event.user.clubname %>さんはこんな団体です</h2>
-<% else %><!-- その他 --><h2>＊<%= @event.user.clubname %></h2>
+<div class="title">
+<%if @event.user.clubtype == '1'%><!-- 部活 -->・<%= @event.user.clubname %>さんはこんな部活です
+<%elsif @event.user.clubtype == '2'%><!-- サークル -->・<%= @event.user.clubname %>さんはこんなサークルです
+<%elsif @event.user.clubtype == '3'%><!-- 学生団体 -->・<%= @event.user.clubname %>さんはこんな団体です
+<% else %><!-- その他 --><h2>・<%= @event.user.clubname %></h2>
 <% end %>
-
+</div>
 <!-- 部活の雰囲気 -->
 <%= render 'events/event_show_club_detail' %>
 <!-- 登録フォーム -->

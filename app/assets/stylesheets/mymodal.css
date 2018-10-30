@@ -5,7 +5,6 @@ https://kuzlog.com/2018/01/21/2413/*/
 
 .open_button{
     position: fixed;
-   /* top: 0;*/
     right: 0;
     bottom: 20px;
     background-color:#FFFF00;
@@ -112,9 +111,6 @@ input[name="myModal_switch"],
 
 @media (min-width: 768px) {
   #myModal_open:checked + label ~ .myModal_popUp {
-   /* width: 600px;
-    height: 800px;*/
-    /*あげる画像によって大きさ変動可能にしておく*/
     width:auto;
     height:auto;
   }

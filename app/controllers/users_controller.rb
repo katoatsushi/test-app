@@ -16,6 +16,14 @@ class UsersController < ApplicationController
     # クリックしたユーザーの投稿したイベント一覧
     @events = Event.where(user_id: params[:id]).order('created_at desc')
 
+   #テスト
+   # current_user = User.find(2) 
+   # @colleges =  CollegeUser.where(user_id: current_user.id)
+   # #選択した大学一覧
+   #  @colleges.each do |c| 
+   #  c.college.name 
+   #  end 
+   
   end
 
   def edit
@@ -31,5 +39,6 @@ class UsersController < ApplicationController
 
   def user_how_to_use
   end
+
 
 end

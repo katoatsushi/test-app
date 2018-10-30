@@ -9,7 +9,6 @@ https://qiita.com/suin/items/8de26866a8ab6ca65ba4*/
     margin: 5px;
     width: 800px;
     height: auto;
-    /*height: 550px;*/
     border: 1px solid #ccc;
     background-size: contain;
     overflow: scroll;
@@ -46,7 +45,6 @@ https://qiita.com/suin/items/8de26866a8ab6ca65ba4*/
 }
 /*ボタン領域の設定*/
 .cover_left, .cover_right {
-    /*position:absolute;*/
     position:absolute;
     top:0;
     width:800px;
@@ -64,7 +62,6 @@ https://qiita.com/suin/items/8de26866a8ab6ca65ba4*/
 /*ボタン領域内のボタン文字（＜、＞）の設定*/
 .cover_left span, .cover_right span {
     position: absolute;
-    /*position:fixed;*/
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-size: 40px;
     font-weight: bold;

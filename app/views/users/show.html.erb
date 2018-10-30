@@ -1,11 +1,23 @@
-<%= render 'users/test' %>
+<%= render 'users/imges' %>
 
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
 	<!-- マイページ -->
-	<%= current_user.clubname %>
+	<div class="title">・<%= current_user.clubname %></div>
+	<% colleges = current_user.colleges %>
+		<% colleges.each do |c| %>
+		<span class="college_btn">
+		<%= c.name %>
+		</span>
+	<% end %>
 	<!-- ここまで -->
 <% else %>
-	<%= @event.user.clubname %>
+	<div class="title">・<%= @event.user.clubname %></div>
+	<% colleges = @event.user.colleges %>
+		<% colleges.each do |c| %>
+		<span class="college_btn">
+		<%= c.name %>
+		</span>
+	<% end %>
 <% end %>
 
 <div class="container">
@@ -20,8 +32,8 @@
 
 				<% if user_signed_in? && current_user.id.to_s == params[:id] %>
 					<!-- マイページの投稿一覧 -->
-					<p><%= current_user.clubname %>さんの投稿一覧
-					</p>
+					<div class="title">・<%= current_user.clubname %>さんの投稿一覧
+					</div>
 					<% if @my_events.blank? %>
 					<h2><%= current_user.clubname %>さんはまだ投稿していません</h2>
 					<% end %>
@@ -46,7 +58,7 @@
 						<% end %>
 				<% else %>
 						<!-- 以下、他の人のホームページに行った時 -->
-						<p>&emsp;&emsp;<%= @event.user.clubname %>　さんの投稿一覧    </p>
+						<div class="title">・<%= @event.user.clubname %>　さんの投稿一覧    </div>
 					    <% @events.each do |event| %>
 					    <!-- 他の人のホームページの投稿一覧 -->
 						　  <div class= "event-box">

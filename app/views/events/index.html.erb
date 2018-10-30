@@ -25,8 +25,8 @@
 
 			<div class="event-box-2">
 				<h id="event-clubname">
-				<span class="marker_yellow_hoso"><%= link_to "#{event.user.clubname}", user_path(event.user.id), method: :get %>さんから、ひと言！&emsp;
-				</span>
+				<div class="marker_yellow_hoso"><%= link_to "#{event.user.clubname}", user_path(event.user.id), method: :get %>さんから、ひと言！&emsp;
+				</div>
 				</h>
 				<% if event.user.clubtype == '1' %>
 					<div class="clubtype-tag1" >部活</div>
@@ -36,14 +36,21 @@
 					<div class="clubtype-tag3">学生団体</div>
 				<% elsif event.user.clubtype == '4' %>
 					<div class="clubtype-tag4">その他</div>
-				<% end %>	
+				<% end %>
+				<!-- 参加大学一覧-->
+				<% colleges = event.user.colleges %>
+				<% colleges.each do |c| %>
+				<span class="college_btn">
+				<%= c.name %>
+				</span>
+				<% end %>
+				<!-- ここまで -->
 			</div>
 
 			<div class="event-box-text"><%= event.text %>
 			</div>
 
             <% if  customer_signed_in? %>
-			<!-- link_to Ver -->
 				<% if event.liked?(current_customer.id) %>
 					<div class = "cliped_btn" id = "cliped_btn"><%= link_to 'いいねを消す', clip_path(customer_id: current_customer.id, id: event.id) ,method: :delete%>	
 					</div>

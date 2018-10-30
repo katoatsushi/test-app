@@ -1,10 +1,6 @@
-@import "bootstrap-sprocket";
-@import "bootstrap";
 /*サークルですか？の新規登録、ログインボタン*/
 .cp_btn {
-  /*display: block;*/
   display:inline-block;
-  /*width: 160px;*/
   padding: 30px 30px;
   margin: 50px 50px;
   text-align: center;

@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 	has_many :clips
   has_many :customers, through: :clips
   has_many :users
+  # has_many :colleges,through: :users
   #validate  :picture_size
     #特定のユーザーが特定のfoodをすでにいいねしているかを判別するメソッド
   def liked? (clips_customer_id)

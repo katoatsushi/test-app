@@ -4,17 +4,30 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :events, dependent: :destroy
-  # has_many :clips, dependent: :destroy #この行を追記することで関連付くイベントが削除されるとclipも削除されます。
-  # has_many :events, through: :clips
+
   mount_uploader :profile_img, PictureUploader
   mount_uploader :contact_address1, PictureUploader
   mount_uploader :contact_address2, PictureUploader
+  
+  # 正解
+  has_many :college_users
+  has_many :colleges, through: :college_users
 
 
   def fetch_events_from_today_until(datetime)
      self.events.fetch_events_from_today_until(datetime)
   end
 
+
+  # def whole_colleges
+  #   @@colleges = College.all
+  # end
+
+  # @colleges = College.all
+
+  # def whole_colleges
+  #   @colleges = College.all
+  # end
 
   #編集の時パスワード入れずに更新できるようにする
 def update_without_current_password(params, *options)

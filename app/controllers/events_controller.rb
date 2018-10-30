@@ -9,6 +9,7 @@ class EventsController < ApplicationController
    # # クリックされたイベントとそうでないイベントを区別する
    # @event = Event.find(params[:id])
    # @clip = Clip.find_by(event_id:  @event.id)
+   
   
   end
 
